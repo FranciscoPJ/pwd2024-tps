@@ -5,62 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cargar Película - Cinem@s</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css"
+        rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         function validar() {
-            var valido = true;
+            let valido = true;
 
             // Validación del campo "Título" - Solo texto
-            var titulo = $('#titulo').val();
+            let titulo = $('#titulo').val();
             if (!/^[a-zA-Z\s]+$/.test(titulo)) {
                 alert('Por favor, ingrese solo letras en el campo Título.');
                 valido = false;
             }
 
             // Validación del campo "Actores" - Solo texto
-            var actores = $('#actores').val();
+            let actores = $('#actores').val();
             if (!/^[a-zA-Z\s]+$/.test(actores)) {
                 alert('Por favor, ingrese solo letras en el campo Actores.');
                 valido = false;
             }
 
             // Validación del campo "Director" - Solo texto
-            var director = $('#director').val();
+            let director = $('#director').val();
             if (!/^[a-zA-Z\s]+$/.test(director)) {
                 alert('Por favor, ingrese solo letras en el campo Director.');
                 valido = false;
             }
 
             // Validación del campo "Guion" - Texto y números
-            var guion = $('#guion').val();
+            let guion = $('#guion').val();
             if (!/^[a-zA-Z0-9\s]+$/.test(guion)) {
                 alert('Por favor, ingrese solo letras y números en el campo Guion.');
                 valido = false;
             }
 
             // Validación del campo "Producción" - Texto y números
-            var produccion = $('#produccion').val();
+            let produccion = $('#produccion').val();
             if (!/^[a-zA-Z0-9\s]+$/.test(produccion)) {
                 alert('Por favor, ingrese solo letras y números en el campo Producción.');
                 valido = false;
             }
 
             // Validación del campo "Año"
-            var anio = $('#anio').val();
+            let anio = $('#anio').val();
             if (!/^\d{4}$/.test(anio)) {
                 alert('Por favor, ingrese un año válido de 4 dígitos.');
                 valido = false;
             }
 
             // Validación del campo "Nacionalidad" - Solo texto
-            var nacionalidad = $('#nacionalidad').val();
+            let nacionalidad = $('#nacionalidad').val();
             if (!/^[a-zA-Z\s]+$/.test(nacionalidad)) {
                 alert('Por favor, ingrese solo letras en el campo Nacionalidad.');
                 valido = false;
             }
 
             // Validación del campo "Duración" - Solo números
-            var duracion = $('#duracion').val();
+            let duracion = $('#duracion').val();
             if (!/^\d{1,3}$/.test(duracion)) {
                 alert('Por favor, ingrese una duración válida de hasta 3 dígitos.');
                 valido = false;
@@ -93,13 +95,16 @@
     </script>
 </head>
 <body>
-    <div class="container mt-18">
-        <h1>Cinem@s</h1>
-        <form id="peliculaForm" action="action/actionej4.php" method="post" class="mt-4" onsubmit="return validar();">
+    <div class="container mt-18 border" style="border: 1px solid #d3d3d3; box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);">
+        <div class="d-flex  w-100 m-0 " style="background-color:rgb(237,237,237)">
+        <i class="bi bi-pencil-square"></i><h1 class="f-1" >Cinem@s</h1>
+        </div>
+      
+        <form id="peliculaForm" action="action/actionej4.php" method="post" class="mt-4 p-4" onsubmit="return validar();">
             
-            <table>   
-                <tr>
-                    <td>
+            <table class="w-100 ">   
+                <tr >
+                    <td class="w-50" >
                         <div class="mb-3">
                             <label for="titulo" class="form-label">Título</label>
                             <input type="text" id="titulo" name="titulo" class="form-control" required>
@@ -184,12 +189,11 @@
                 </tr>
                 <tr>
                     <td>
-                        <div class="mb-3">
-                            <button type="submit" class="btn btn-primary">Enviar</button>
-                        </div>
+                      
                     </td>
                     <td>
-                        <div class="mb-3">
+                        <div class="mb-3 d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary">Enviar</button>
                             <button type="button" id="borrar" class="btn btn-secondary">Borrar</button>
                         </div>
                     </td>
