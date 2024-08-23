@@ -15,7 +15,7 @@
 </head>
 <body>
     <h1>Operaciones Matemáticas</h1>
-    <form action="../control/procesar_operacion.php" method="post">
+    <form action="action/actionej7.php" method="post">
         <label for="numero1">Número 1:</label>
         <input type="text" id="numero1" name="numero1" required>
         

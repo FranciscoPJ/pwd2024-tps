@@ -30,7 +30,7 @@
 
 <body>
     <h1>Formulario de Datos Personales</h1>
-    <form action="../control/procesar_datos.php" method="get">
+    <form action="action/actionej6.php" method="get">
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required>
         
@@ -42,11 +42,11 @@
         
         <label>Nivel de estudios:</label>
         <label for="no_estudios">No tiene estudios</label>
-        <input type="radio" id="no_estudios" name="estudios" value="1" required>
+        <input type="radio" id="estudio" name="estudio" value="1" required>
         <label for="primarios">Estudios primarios</label>
-        <input type="radio" id="primarios" name="estudios" value="2" required>
+        <input type="radio" id="estudio" name="estudio" value="2" required>
         <label for="secundarios">Estudios secundarios</label>
-        <input type="radio" id="secundarios" name="estudios" value="3" required>
+        <input type="radio" id="estudio" name="estudio" value="3" required>
 
         <label for="sexo">Sexo:</label>
         <select id="sexo" name="sexo" required>
@@ -57,13 +57,13 @@
         
         <label for="deportes">Deportes que practicas:</label>        
         <label for="futbol">Futbol</label>
-        <input type="checkbox" id="futbol" name="deportes[]" value="Futbol">
+        <input type="checkbox" id="deportes" name="deportes[]" value="Futbol">
         <label for="basket">Basket</label>
-        <input type="checkbox" id="basket" name="deportes[]" value="Basket">
+        <input type="checkbox" id="deportes" name="deportes[]" value="Basket">
         <label for="tennis">Tennis</label>
-        <input type="checkbox" id="tennis" name="deportes[]" value="Tennis">
+        <input type="checkbox" id="deportes" name="deportes[]" value="Tennis">
         <label for="voley">Voley</label>
-        <input type="checkbox" id="voley" name="deportes[]" value="Voley">
+        <input type="checkbox" id="deportes" name="deportes[]" value="Voley">
         
         <br><input type="submit" value="Enviar">
     </form>
