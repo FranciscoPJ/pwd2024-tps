@@ -12,7 +12,7 @@
         <div class="row justify-content-center">
             <div class="col-md-4">
                 <h2 class="text-center text-secondary">Member Login</h2>
-                <form action="verificaPass.php" method="post" onSubmit="return validar();">
+                <form action="action/actionej3.php" method="post" onSubmit="return validar();">
                     <div class="form-group">
                         <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Username" required>
                     </div>
