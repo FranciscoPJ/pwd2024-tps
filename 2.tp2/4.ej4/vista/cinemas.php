@@ -96,7 +96,7 @@
 </head>
 <body>
     <div class="container mt-18 border" style="border: 1px solid #d3d3d3; box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);">
-        <div class="d-flex  w-100 m-0 " style="background-color:rgb(237,237,237)">
+        <div class="d-flex  w-100 m-0 color:3991ac" style="background-color:rgb(237,237,237)">
         <i class="bi bi-pencil-square"></i><h1 class="f-1" >Cinem@s</h1>
         </div>
       
