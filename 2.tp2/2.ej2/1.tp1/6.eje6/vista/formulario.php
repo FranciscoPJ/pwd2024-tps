@@ -7,12 +7,12 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         function validar() {
-            var valid = true;
-            var mensajes = [];
+            let valid = true;
+            let mensajes = [];
 
             // Función de validación genérica
             function validarCampo(id, mensaje, permitirNumeros) {
-                var valor = $(id).val().trim();
+                 let valor = $(id).val().trim();
                 if (valor === "") {
                     mensajes.push(mensaje);
                     valid = false;
@@ -27,7 +27,7 @@
             validarCampo("#apellido", "Por favor, ingrese su apellido.", false);
 
             // Validar edad de manera especial
-            var edad = $('#edad').val();
+            let edad = $('#edad').val();
             if (!$.isNumeric(edad) || edad <= 0 || edad > 110) {
                 mensajes.push("Por favor, ingrese una edad válida (número positivo y menor o igual a 110).");
                 valid = false;
@@ -61,7 +61,7 @@
     </script>
     <style>
         h1 {
-            margin-left: 360px;
+            margin-left: 775px;
         }
         form {
             width: 300px;

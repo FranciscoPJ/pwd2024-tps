@@ -5,7 +5,7 @@ $cliente = new Cliente();
 
     if ($_POST) {
         $edad = intval($_POST['edad']);
-        $estudiante = $_POST['operacion'];
+        $estudiante = $_POST['estudiante'];
         $valor = $cliente->esEstudiante($edad, $estudiante);
         
     } else {
@@ -17,6 +17,8 @@ $cliente = new Cliente();
 <html>
 <head>
     <title>Resultado del Cálculo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
 </head>
 <body>
     <h1>Resultado del Cálculo</h1>

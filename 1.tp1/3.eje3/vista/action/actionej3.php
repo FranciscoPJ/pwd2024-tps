@@ -15,7 +15,7 @@
         $persona->setEdad($edad);
         $persona->setDireccion($direccion);
 
-        $mensaje = "Hola, yo soy " . $nombre . ", " . $apellido . " tengo " . $edad . " años y vivo en " . $direccion ;
+        $mensaje = "Hola, me llamo " . $nombre . ", " . $apellido . " tengo " . $edad . " años y vivo en " . $direccion ;
     } else {
         $mensaje = "No hay datos";
     }

@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Operaciones Matemáticas</title>
+    
+    <!--jquery-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         function validar() {
-            var valid = true;
-            var mensajes = [];
+            let valid = true;
+            let mensajes = [];
 
-            // Validar campos numéricos
+            // Validar campos numericos
             function validarNumero(id, mensaje) {
-                var valor = $(id).val().trim();
+                let valor = $(id).val().trim();
                 if (!$.isNumeric(valor)) {
                     mensajes.push(mensaje);
                     valid = false;
@@ -38,6 +40,9 @@
         }
     </script>
     <style>
+        h1 {
+            margin-left: 775px;
+        }
         form {
             width: 300px;
             margin: 0 auto;

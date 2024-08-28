@@ -4,63 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Entradas - Cine Cinem@s</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         function validar() {
-            var valid = true;
-            var mensajes = [];
+            let valid = true;
+            let mensajes = [];
 
             // Validar edad
-            var edad = $('#edad').val().trim();
+            let edad = $('#edad').val().trim(); 
             if (!$.isNumeric(edad) || edad <= 0) {
                 mensajes.push("Por favor, ingrese una edad válida (número positivo).");
                 valid = false;
             }
 
-            // Validar selección de estudiante
-            if ($('#operacion').val() === "") {
+            // Validar estudiante
+            let estudiante = $('input[name="estudiante"]:checked').val();
+            if (!estudiante) {
                 mensajes.push("Por favor, seleccione si eres estudiante o no.");
                 valid = false;
             }
 
             // Mostrar mensajes si hay errores
             if (mensajes.length > 0) {
-                alert(mensajes.join("\n"));
+                $('#error-mensajes').html(mensajes.join("<br>")).show();
+            } else {
+                $('#error-mensajes').hide();
             }
 
             return valid;
         }
     </script>
     <style>
-        h1{
-            margin-left: 400px;
-        }
-        form {
-            width: 300px;
-            margin: 0 auto;
-        }
-        label, input[type="number"], input[type="checkbox"], input[type="submit"], input[type="reset"] {
-            display: block;
-            margin-top: 10px;
-            width: 100%;
+        .container {
+            max-width: 600px;
+            margin-top: 50px;
         }
     </style>
 </head>
 <body>
-    <h1>Calculadora de Entradas</h1>
-    <form action="action/actionej8.php" method="post" onsubmit="return validar();">
-        <label for="edad">Edad:</label>
-        <input type="number" id="edad" name="edad" required>
-        
-        <label for="operacion">¿Eres estudiante?</label>
-        <select id="operacion" name="operacion" required>
-            <option value="">Seleccione...</option>
-            <option value="si">Sí</option>
-            <option value="no">No</option>
-        </select>
-        
-        <input type="submit" value="Calcular">
-        <input type="reset" value="Limpiar">
-    </form>
+    <div class="container">
+        <h1>Calculadora de Entradas</h1>
+        <form action="action/actionej8.php" method="post" onsubmit="return validar();">
+            <div class="mb-3">
+                <label for="edad" class="form-label">Edad:</label>
+                <input type="number" id="edad" name="edad" class="form-control" required>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">¿Eres estudiante?</label><br>
+                <input type="radio" id="si" name="estudiante" value="si" required>
+                <label for="si">Sí</label><br>
+                <input type="radio" id="no" name="estudiante" value="no" required>
+                <label for="no">No</label>
+            </div>
+
+            <div id="error-mensajes" class="text-danger mb-3" style="display:none;"></div>
+            
+            <button type="submit" class="btn btn-primary">Calcular</button>
+            <button type="reset" class="btn btn-secondary">Limpiar</button>
+        </form>
+    </div>
 </body>
 </html>

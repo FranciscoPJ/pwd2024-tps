@@ -18,11 +18,12 @@
             /* Asegura que el borde sea visible */
             align-items: center;
         }
-        .h-40{
+
+        .h-40 {
             height: 40%;
         }
 
-        .custom-btn-x{
+        .custom-btn-x {
             top: 0;
             right: 0;
             margin: 10px;
@@ -34,7 +35,7 @@
     <div class="container d-flex justify-content-center align-items-center vh-100 ">
         <div class="col-md-4 h-40 row justify-content-center custom-border py-5  h-30 position-relative ">
             <h2 class="fw-light f-4">Member Login</h2>
-            <form action="action/actionej3.php" method="post" onSubmit="return validar();">
+            <form action="action/actionej3.php" method="post" onsubmit="return validar();">
                 <div class="form-group position-relative">
                     <input type="text" class="form-control pl-5" id="usuario" name="usuario" placeholder="Username"
                         required>
@@ -51,7 +52,7 @@
             </form>
             <button class="position-absolute custom-btn-x  p-1 border-0 bg-transparent">x</button>
         </div>
-        
+
     </div>
 
     <!-- jQuery and Bootstrap JS -->
@@ -59,27 +60,32 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
         function validar() {
-            var usuario = $('#usuario').val();
-            var clave = $('#clave').val();
+            let usuario = $('#usuario').val();
+            let clave = $('#clave').val();
+            let mensajes = [];
 
             if (usuario.length === 0 || clave.length === 0) {
-                alert("Por favor, complete todos los campos.");
-                return false;
+                $mensaje.push("Por favor, complete todos los campos.");
+                
             }
 
             if (clave.length < 8) {
-                alert("La contraseña debe tener al menos 8 caracteres.");
-                return false;
+                $mensaje.push("La contraseña debe tener al menos 8 caracteres.");
+               
             }
 
-            var regex = /^(?=.*[a-zA-Z])(?=.*\d)/;
+            let regex = /^(?=.*[a-zA-Z])(?=.*\d)/;
             if (!regex.test(clave)) {
-                alert("La contraseña debe contener letras y números.");
-                return false;
+                $mensaje.push("La contraseña debe contener letras y números.");
+                
             }
 
             if (clave === usuario) {
-                alert("La contraseña no puede ser igual al nombre de usuario.");
+                $mensaje.push("La contraseña no puede ser igual al nombre de usuario.");
+                
+            }
+            if (mensajes.length > 0) {
+                alert(mensajes.join("\n")); //todos los mensajes de error.
                 return false;
             }
 

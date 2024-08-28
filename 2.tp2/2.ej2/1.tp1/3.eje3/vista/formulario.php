@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Datos Personales</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script>
         function validar() {
             var valid = true;
@@ -51,7 +52,7 @@
     </script>
     <style>
         h1 {
-            margin-left: 500px;
+            margin-left: 800px;
         }
 
         form {

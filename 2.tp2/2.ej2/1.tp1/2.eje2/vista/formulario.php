@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Horas de Cursada</title>
+    <!--boostrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         function validar() {
-            var valid = true;
-            var mensajes = [];
+            let valid = true;
+            let mensajes = [];
 
             $('input[type="number"]').each(function() {
-                var valor = $(this).val();
+                let valor = $(this).val();
                 if (!$.isNumeric(valor) || valor < 0) {
                     mensajes.push("Por favor, ingrese un número válido y no negativo en " + $(this).prev('label').text());
                     valid = false;

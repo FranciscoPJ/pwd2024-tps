@@ -20,13 +20,18 @@ if ($_GET) {
 
 <!DOCTYPE html>
 <html>
-    <head>
+
+<head>
+
     <head>
         <title>
             Ver cantidad de horas semanales
         </title>
+        <!--boostrap-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     </head>
-    <body>
+
+<body>
     <p>
         <?php
         echo $contenido;
@@ -36,5 +41,6 @@ if ($_GET) {
     </div>
 
 
-    </body>
+</body>
+
 </html>
