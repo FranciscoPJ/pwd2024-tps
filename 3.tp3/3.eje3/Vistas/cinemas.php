@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
     <script>
         function validar() {
             let valido = true;
+            let allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
 
             // Validación del campo "Título" - Solo texto
             let titulo = $('#titulo').val();
@@ -73,6 +75,14 @@
                 alert('Por favor, seleccione una restricción de edad.');
                 valido = false;
             }
+            let imagen = $('#imagen').val();
+            if (imagen === '') {
+                alert('Por favor, seleccione una imagen.');
+                valido = false;
+            } else if (!allowedExtensions.exec(imagen)) {
+                alert('Por favor, seleccione un archivo de imagen válido (JPG, JPEG, PNG, GIF).');
+                valido = false;
+            }
 
             // Verificar que todos los campos estén completos
             $('#peliculaForm input, #peliculaForm select, #peliculaForm textarea').each(function() {
@@ -94,17 +104,19 @@
         });
     </script>
 </head>
+
 <body>
     <div class="container mt-18 border" style="border: 1px solid #d3d3d3; box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);">
         <div class="d-flex  w-100 m-0 color:3991ac" style="background-color:rgb(237,237,237)">
-        <i class="bi bi-pencil-square"></i><h1 class="f-1" >Cinem@s</h1>
+            <i class="bi bi-pencil-square"></i>
+            <h1 class="f-1">Cinem@s</h1>
         </div>
-      
-        <form id="peliculaForm" action="action/actionej4.php" method="post" class="mt-4 p-4" onsubmit="return validar();">
-            
-            <table class="w-100 ">   
-                <tr >
-                    <td class="w-50" >
+
+        <form id="peliculaForm" action="action/actionej4.php" method="post" class="mt-4 p-4" enctype="multipart/form-data" onsubmit="return validar();">
+
+            <table class="w-100 ">
+                <tr>
+                    <td class="w-50">
                         <div class="mb-3">
                             <label for="titulo" class="form-label">Título</label>
                             <input type="text" id="titulo" name="titulo" class="form-control" required>
@@ -116,8 +128,8 @@
                             <input type="text" id="actores" name="actores" class="form-control" required>
                         </div>
                     </td>
-                </tr> 
-                
+                </tr>
+
                 <tr>
                     <td>
                         <div class="mb-3">
@@ -150,7 +162,7 @@
                     <td>
                         <div class="mb-3">
                             <label for="nacionalidad" class="form-label">Nacionalidad</label>
-                            <input type="text" id="nacionalidad" name="nacionalidad" class="form-control"  required>
+                            <input type="text" id="nacionalidad" name="nacionalidad" class="form-control" required>
                         </div>
                     </td>
                     <td>
@@ -185,21 +197,31 @@
                 <tr>
                     <td colspan="2">Sinopsis<br>
                         <textarea name="mensajeTarea" id="mensaje" cols="50" rows="6" class="form-control" required></textarea>
-                    </td> 
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="mb-3">
+                            <label for="imagen" class="form-label">Imagen de la película</label>
+                            <input type="file" id="imagen" name="imagen" class="form-control" required>
+                        </div>
+                    </td>
                 </tr>
                 <tr>
                     <td>
-                      
+
                     </td>
                     <td>
                         <div class="mb-3 d-flex justify-content-end">
-                        <button type="submit" class="btn btn-primary">Enviar</button>
+                            <button type="submit" class="btn btn-primary">Enviar</button>
                             <button type="button" id="borrar" class="btn btn-secondary">Borrar</button>
                         </div>
                     </td>
-                </tr>                                
+                </tr>
+
             </table>
         </form>
     </div>
 </body>
+
 </html>
