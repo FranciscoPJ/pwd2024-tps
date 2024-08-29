@@ -35,7 +35,7 @@
     <div class="container d-flex justify-content-center align-items-center vh-100 ">
         <div class="col-md-4 h-40 row justify-content-center custom-border py-5  h-30 position-relative ">
             <h2 class="fw-light f-4">Member Login</h2>
-            <form action="action/actionej3.php" method="post" onsubmit="return validar();">
+            <form action="action/actionej3.php" method="post" onSubmit="return validar();">
                 <div class="form-group position-relative">
                     <input type="text" class="form-control pl-5" id="usuario" name="usuario" placeholder="Username"
                         required>
@@ -65,27 +65,27 @@
             let mensajes = [];
 
             if (usuario.length === 0 || clave.length === 0) {
-                $mensaje.push("Por favor, complete todos los campos.");
-                
+                alert("Por favor, complete todos los campos.");
+                return false;
             }
 
             if (clave.length < 8) {
-                $mensaje.push("La contraseña debe tener al menos 8 caracteres.");
-               
+                alert("La contraseña debe tener al menos 8 caracteres.");
+                return false;
             }
 
             let regex = /^(?=.*[a-zA-Z])(?=.*\d)/;
             if (!regex.test(clave)) {
-                $mensaje.push("La contraseña debe contener letras y números.");
-                
+                alert("La contraseña debe contener letras y números.");
+                return false;
             }
 
             if (clave === usuario) {
-                $mensaje.push("La contraseña no puede ser igual al nombre de usuario.");
-                
+                alert("La contraseña no puede ser igual al nombre de usuario.");
+                return false;
             }
             if (mensajes.length > 0) {
-                alert(mensajes.join("\n")); //todos los mensajes de error.
+                alert(mensajes.join("\n")); // Mostramos todos los mensajes de error.
                 return false;
             }
 
