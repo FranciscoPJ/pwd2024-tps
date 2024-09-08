@@ -1,0 +1,16 @@
+div{
+    background-color: #c9febd;
+    height: 260px;
+    border-radius: 10px;
+}
+
+h1{
+    padding-top: 5px;
+    margin-left: 15px;
+    color: #0494d4; 
+}
+
+p{  
+    margin-left: 15px;
+    color: #407b32;  
+}
