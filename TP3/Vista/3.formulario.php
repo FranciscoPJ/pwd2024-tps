@@ -16,7 +16,7 @@
         <h1 class="f-1 text-primary">Cinem@s</h1>
     </div>
 
-    <form id="peliculaForm" action="Action/4.actionCinemas.php" method="post" class="mt-3 p-1" onsubmit="return validar();">
+    <form id="peliculaForm" action="Action/3.actionCinemas.php" method="post" class="mt-3 p-1" onsubmit="return validar();" enctype="multipart/form-data">
 
         <table class="w-100 ">
             <tr>

@@ -4,7 +4,6 @@ include_once "../../Control/Archivo.php";
 include_once "../../Utils/funciones.php";
 
 $datosPelicula = data_submitted();
-
 $pelicula = new Pelicula();
 $archivo = new Archivo();
 
@@ -24,11 +23,12 @@ $nombreImagen = $datosPelicula['miArchivo']['name'];
 <html>
 <head>
     <title>Pelicula</title>
+    <link rel="stylesheet" href="../Assets/css/3.Action.css" type="text/css">
 </head>
 
 <body>
-    <div style="background-color: green;">
-        <h1 style="color: blue;">La pelicula introducida es</h1>
+    <div style="background-color: #c9febd;">
+        <h1>La pelicula introducida es</h1>
         <!-- <p><?php //echo $mensaje ?></p> -->
 
         <!-- Mostrar informacion de la pelicula -->
@@ -37,15 +37,14 @@ $nombreImagen = $datosPelicula['miArchivo']['name'];
             foreach ($coldatosPelicula as $campo => $dato) {
                 echo "<strong>" . $campo . ":</strong> " . $dato . "<br>";
             }
+            echo "<strong>Imagen de la película:</strong><br>";
             ?>
         </p>
-
         <!-- Mostrar la imagen subida de la pelicula -->
         <?php
-        if ($resultado == 1) {
-            echo "<p><strong>Imagen de la película:</strong></p>";
-            echo "<img src='../../Archivos/" . $nombreImagen . "' alt='Imagen de la película' width='200px'>";
-        }
+            if ($resultado == 1) {
+                echo "<img src='../../Archivos/" . $nombreImagen . "' alt='Imagen de la película' width='200px'>";
+            }
         ?>
     </div>
 </body>
