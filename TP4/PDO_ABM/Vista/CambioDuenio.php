@@ -13,19 +13,19 @@ include_once "../configuracion.php";
 ?>	
 
 <main>
-    <form  id="cambioDuenio" action="Action/accionCambioDuenio.php" >
-        <div>
+<form id="cambioDuenio" action="Action/accionCambioDuenio.php" method="GET">
+    <div>
         <label for="patente">Patente</label>
-        <input type="text"  id="patente" class="form-control">
-    <span id="msj-patente" class="text-danger fw-semibold"></span>
-        </div>
-        <div>
+        <input type="text" id="patente" name="Patente" class="form-control">
+        <span id="msj-patente" class="text-danger fw-semibold"></span>
+    </div>
+    <div>
         <label for="doc">DNI</label>
-        <input type="text"  id="doc" name="doc" >
+        <input type="text" id="doc" name="NroDni">
         <span id="msj-doc" class="text-danger fw-semibold"></span>
-        </div>
-        <input type="submit" class="form-control">
-    </form>
+    </div>
+    <input type="submit" class="form-control">
+</form>
     <script>
     $(document).ready(function() {
         // Escuchar el evento submit del formulario
