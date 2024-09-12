@@ -1,55 +1,69 @@
-<!DOCTYPE html>
+<?php
+include_once '../../configuracion.php';
+
+$datos = data_submitted();
+//print_r($datos);
+
+//verEstructura($datos);
+$resp = false;
+$objAbmAuto = new AbmAuto();
+$ObjPersona = new AbmPersona();
+$mensaje= "";
+$mensajePersona = "";
+$nuevosDatos;
+if (isset($datos['Patente']) && isset($datos['NroDni'])){
+
+    $patente = $datos['Patente'];
+    $doc = $datos['NroDni'] ;
+    
+$auto =$objAbmAuto->Buscar($datos);
+ $actualObjPersona= $auto[0]->getObjDniDuenio();
+$persona = $ObjPersona->Buscar($datos);
+if(!$auto || !$persona){
+    $mensaje="Auto o Persona no encontrados";
+}else if($persona[0]){
+    if($actualObjPersona->getNroDni() === $datos['NroDni']){
+        $mensaje="El auto ya pertenece a esta persona" ;
+    }
+    else if(!$mensaje){
+        print_r($auto[0]);
+        $nuevosDatos = $auto[0];
+        $auto[0]->setObjDniDuenio($persona[0]);
+        $auto[0]->modificacion( $nuevosDatos);
+       
+    }
+}
+
+
+}
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>Actualizar Datos de Persona</title>
-   
-</head>
-<body c>
+    <head>
+    <title>Nueva Persona</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    </head>
+
+    <body>
+    <h3>Datos Actualizados del Auto</h3>
+    <span> <?php echo $mensajeAuto ?></span>
+    <span> <?php echo $mensaje ?></span>
+    <div>
     <?php
-
-    require_once("../../../configuracion.php");
-   
+    if (isset($nuevosDatos)) {
+        $datosAuto = "
+        <p>Patente: " . $nuevosDatos->getPatente() . "</p> 
+        <p>Modelo: " . $nuevosDatos->getModelo() . "</p> 
+         <p>Modelo: " . $nuevosDatos->getMarca() . "</p> 
+        <p>DNI Dueño: " . $nuevosDatos->getObjDniDuenio()->getNroDni() . "</p>
+        ";
+        echo $datosAuto;
+    }
     ?>
-
-<main¿>
-
-    <div ¿>
-        <h2>Cambio de Dueño de Auto</h2>
-        <div class="container text-center">
-        <?php
-
-            $datos = data_submitted();
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $patente = $datos['patente'];
-                $dni = $datos['nroDni'];
-
-                $abmAuto = new AbmAuto();
-                $abmPersona = new AbmPersona();
-
-                // Verificar si el auto y la persona existen en la base de datos
-                $autoExistente = $abmAuto->Buscar($patente);
-                $personaExistente = $abmPersona->obtenerDatosPersona($dni);
-
-                if ($autoExistente && $personaExistente) {
-                    // Realizar el cambio de dueño del auto
-                    $resultado = $abmAuto->modificarDuenioAuto($patente, $dni);
-
-                    if (strpos($resultado, 'con éxito') !== false) {
-                        echo "Cambio de dueño realizado con éxito.";
-                    } else {
-                        echo "Error: $resultado";
-                    }
-                } else {
-                    echo "El auto o la persona no existen en la base de datos.";
-                }
-            }
-            ?>
-        </div>
     </div>
-</main>
-</body>
+
+    <br><a href="../nuevaPersona.php">Volver</a><br>
+
+    </body>
 </html>
-
-
-

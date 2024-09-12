@@ -17,6 +17,7 @@ include_once "estructura/Header.php";
 
     ?>
 
+<<<<<<< HEAD
     <main>
         <form id="cambioDuenio" action="Action/accionCambioDuenio.php">
             <div>
@@ -39,6 +40,30 @@ include_once "estructura/Header.php";
                     var isValid = true;
                     var patente = $('#patente').val().trim();
                     var doc = $('#doc').val().trim();
+=======
+<main>
+<form id="cambioDuenio" action="Action/accionCambioDuenio.php" method="GET">
+    <div>
+        <label for="patente">Patente</label>
+        <input type="text" id="patente" name="Patente" class="form-control">
+        <span id="msj-patente" class="text-danger fw-semibold"></span>
+    </div>
+    <div>
+        <label for="doc">DNI</label>
+        <input type="text" id="doc" name="NroDni">
+        <span id="msj-doc" class="text-danger fw-semibold"></span>
+    </div>
+    <input type="submit" class="form-control">
+</form>
+    <script>
+    $(document).ready(function() {
+        // Escuchar el evento submit del formulario
+        $('#cambioDuenio').on('submit', function(event) {
+            // Prevenir el envío del formulario si no pasa las validaciones
+            var isValid = true;
+            var patente = $('#patente').val().trim();
+            var doc = $('#doc').val().trim();
+>>>>>>> 9fddd7341c092484d2dc07443baeba68e8700e5b
 
                     if (patente === '') {
                         isValid = false;
