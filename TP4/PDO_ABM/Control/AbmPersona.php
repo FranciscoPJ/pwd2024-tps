@@ -106,7 +106,7 @@ class AbmPersona{
         $where = "";
         //echo "<div>hola entramos en al buscar()</div>";
         //$param<>NULL 
-        if (!empty($param)){
+        if ($param<>NULL){
 
             if  (isset($param['NroDni'])){            
                 $where.=" NroDni ='".$param['NroDni'] . "'";

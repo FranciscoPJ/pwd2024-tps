@@ -1,25 +1,8 @@
-
-
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <title>Cambio de duenio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-
-<body>
-    <?php
-    include_once "../configuracion.php";
-
-    ?>
-
-
-<main>
 <?php
-include_once "estructura/Header.php";
+    //include_once "../configuracion.php";
+    include_once "Estructura/Header.php";
 ?>
+
 <form id="cambioDuenio" action="Action/accionCambioDuenio.php" method="GET" onclick="return Validacion()" style="width: 500px; margin:10% auto ;">
     <div class="mb-3">
         <label for="patente" class="form-label">Patente</label>
@@ -33,6 +16,7 @@ include_once "estructura/Header.php";
     </div>
     <input type="submit" class="btn btn-primary">
 </form>
+
     <script>
         function Validacion(){
     $(document).ready(function() {
@@ -71,11 +55,6 @@ include_once "estructura/Header.php";
         }
         </script>
 
-    </main>
-
-</body>
-
-</html>
 <?php
-include_once "estructura/Footer.php";
+include_once "Estructura/Footer.php";
 ?>

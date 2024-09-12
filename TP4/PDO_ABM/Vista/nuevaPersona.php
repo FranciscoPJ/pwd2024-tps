@@ -1,16 +1,7 @@
 <?php
-include_once "estructura/Header.php";
+include_once "Estructura/Header.php";
 ?>
 
-
-
-<html>
-
-<head>
-    <title>Nueva Persona</title>
-</head>
-
-<body>
     <h2>Registrar Nueva Persona</h2>
 
     <form action="Action/accionNuevaPersona.php" method="POST">
@@ -36,9 +27,7 @@ include_once "estructura/Header.php";
         <input type="hidden" id="accion" name="accion" value="nuevo">
         <button type="submit">Registrar</button>
     </form>
-</body>
 
-</html>
 <?php
-include_once "estructura/Footer.php";
+include_once "Estructura/Footer.php";
 ?>

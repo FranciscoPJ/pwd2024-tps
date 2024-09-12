@@ -125,12 +125,13 @@
             <div class="me-3" style="width: 200px;">
                 <ul class="list-group">
                     <li class="list-group-item active">TP4</li>
-                    <li class="list-group-item"><a href="TP4/PDO_ABM/Vista/buscarAuto.php">Ejercicio: buscarAuto</a></li>
-                    <li class="list-group-item"><a href="TP4/PDO_ABM/Vista/CambioDuenio.php">Ejercicio: CambioDuenio</a></li>
-                    <li class="list-group-item"><a href="TP4/PDO_ABM/Vista/listaPersonas.php">Ejercicio: listaPersonas</a></li>
-                    <li class="list-group-item"><a href="TP4/PDO_ABM/Vista/nuevaPersona.php">Ejercicio: nuevaPersona</a></li>
-                    <li class="list-group-item"><a href="TP4/PDO_ABM/Vista/NuevoAuto.php">Ejercicio: NuevoAuto</a></li>
-                    <li class="list-group-item"><a href="TP4/PDO_ABM/Vista/verAutos.php">Ejercicio: verAutos</a></li>
+                    <li class="list-group-item"><a href="TP4/PDO_ABM/Vista/verAutos.php">Ejercicio: 3</a></li>
+                    <li class="list-group-item"><a href="TP4/PDO_ABM/Vista/buscarAuto.php">Ejercicio: 4</a></li>
+                    <li class="list-group-item"><a href="TP4/PDO_ABM/Vista/listaPersonas.php">Ejercicio: 5</a></li>
+                    <li class="list-group-item"><a href="TP4/PDO_ABM/Vista/nuevaPersona.php">Ejercicio: 6</a></li>
+                    <li class="list-group-item"><a href="TP4/PDO_ABM/Vista/nuevoAuto.php">Ejercicio: 7</a></li>
+                    <li class="list-group-item"><a href="TP4/PDO_ABM/Vista/cambioDuenio.php">Ejercicio: 8</a></li>
+                    <li class="list-group-item"><a href="TP4/PDO_ABM/Vista/buscarAuto.php">Ejercicio: 9</a></li>
                 </ul>
             </div>
 

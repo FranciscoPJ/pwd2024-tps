@@ -103,12 +103,13 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">TP4</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="buscarAuto.php">Ejercicio: buscarAuto </a></li>
-                        <li><a class="dropdown-item" href="CambioDuenio.php">Ejercicio: CambioDuenio </a></li>
-                        <li><a class="dropdown-item" href="listaPersonas.php">Ejercicio: listaPersonas </a></li>
-                        <li><a class="dropdown-item" href="nuevaPersona.php">Ejercicio: nuevaPersona </a></li>
-                        <li><a class="dropdown-item" href="NuevoAuto.php">Ejercicio: NuevoAuto</a></li>
-                        <li><a class="dropdown-item" href="verAutos.php">Ejercicio: verAutos</a></li>
+                        <li><a class="dropdown-item" href="verAutos.php">Ejercicio: 3</a></li>
+                        <li><a class="dropdown-item" href="buscarAuto.php">Ejercicio: 4 </a></li>                        
+                        <li><a class="dropdown-item" href="listaPersonas.php">Ejercicio: 5</a></li>
+                        <li><a class="dropdown-item" href="nuevaPersona.php">Ejercicio: 6</a></li>
+                        <li><a class="dropdown-item" href="nuevoAuto.php">Ejercicio: 7</a></li>
+                        <li><a class="dropdown-item" href="cambioDuenio.php">Ejercicio: 8 </a></li>
+                        <li><a class="dropdown-item" href="buscarPersona.php">Ejercicio: 9</a></li>
 
                     </ul>
                 </li>

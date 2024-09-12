@@ -1,22 +1,13 @@
 <?php
 include_once "../configuracion.php";
-
 $objAbmPersona = new AbmPersona();
 $listaPersonas = $objAbmPersona->buscar(null);
 ?>
+
 <?php
 include_once "estructura/Header.php";
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-
-<head>
-    <title>Lista Persona</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-</head>
-
-<body>
     <h3 align="center">Ejercicio 5 - Lista de Personas</h3>
     <table border="1" align="center">
         <?php
@@ -62,9 +53,7 @@ if (isset($_GET['dni'])) {
 }
     -->
 
-</body>
 
-</html>
 <?php
-include_once "estructura/Footer.php";
+include_once "Estructura/Footer.php";
 ?>

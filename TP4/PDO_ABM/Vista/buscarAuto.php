@@ -1,17 +1,6 @@
 <?php
-include_once "estructura/Header.php";
+include_once "Estructura/Header.php";
 ?>
-
-
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buscar Auto</title>
-</head>
-
-<body>
 
     <h2>Formulario Auto</h2>
     <form action="Action/accionBuscarAuto.php" method="POST">
@@ -23,9 +12,6 @@ include_once "estructura/Header.php";
         <input type="submit" value="enviar">
     </form>
 
-</body>
-
-</html>
 <?php
-include_once "estructura/Footer.php";
+include_once "Estructura/Footer.php";
 ?>

@@ -1,23 +1,13 @@
 <?php
 include_once "../configuracion.php";
 $objAbmAuto = new AbmAuto();
-
 $listaAutos = $objAbmAuto->buscar(null);
 ?>
+
 <?php
-include_once "estructura/Header.php";
+include_once "Estructura/Header.php";
 ?>
 
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-
-<head>
-    <title>Ejemplo</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-</head>
-
-<body>
     <h3>Lista de Autos</h3>
     <table border="1">
         <?php
@@ -42,9 +32,7 @@ include_once "estructura/Header.php";
 
         ?>
     </table>
-</body>
 
-</html>
 <?php
-include_once "estructura/Footer.php";
+include_once "Estructura/Footer.php";
 ?>
