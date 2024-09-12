@@ -153,6 +153,11 @@ class AbmPersona{
         return $existe;
     }
 
+    /*public function buscarPersona($array){
+        $objeto = $this->cargarObjeto($array)
+
+    }*/
+
     
 }
 //$NroDni, $Apellido, $Nombre, $fechaNac, $Telefono, $Domicilio

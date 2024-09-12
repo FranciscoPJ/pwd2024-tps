@@ -13,7 +13,7 @@ class AbmAuto{
     private function cargarObjeto($param){
         $obj = null;
         
-        if(array_key_exists('Patente',$param) and array_key_exists('Marca',$param) and array_key_exists('Modelo',$param) and array_key_exists('DniDuenio',$param)){
+        if(array_key_exists('Patente',$param) and array_key_exists('Marca',$param) and array_key_exists('Modelo',$param)){ //and array_key_exists('DniDuenio',$param)
             $obj = new Auto();
             $obj->setear($param['Patente'], $param['Marca'], $param['Modelo'], $param['DniDuenio']);
         }
@@ -55,11 +55,12 @@ class AbmAuto{
      */
     public function alta($param){ //agrega
         $resp = false;
-        $param['Patente'] =null;
+        //$param['Patente'] =null;
         $elObjtAuto = $this->cargarObjeto($param);
-        /*aca voy a descomentar verEstructura($elObjtAuto)*/
-        //verEstructura($elObjtAuto);
-        if ($elObjtAuto!=null and $elObjtAuto->insertar()){
+        
+        //verEstructura($elObjtAuto); /*aca voy a descomentar verEstructura($elObjtAuto)*/
+
+        if ($elObjtAuto!=null and $elObjtAuto->insertar()){ // no hay que poner datos nulos pienso
             $resp = true;
         }
         return $resp;
@@ -154,6 +155,22 @@ class AbmAuto{
         return $colDatos;
     }
     
+
+    /**
+     * permite buscar un objeto
+     * @param array $param param['clavePrimaria']
+     * @return boolean 
+     */
+    public function existeAuto($param){
+
+        $existe = false;
+        $arregloAuto = $this->buscar($param); //obtiene arreglo (si es que existe o arreglo vacio (si no existe))
+        if(count($arregloAuto) > 0){ //si es mayor a 0, obtiene el objeto, retorna true (malo porque ya existe en la base de datos)
+            $existe = true;
+        }
+        // falso (bueno)
+        return $existe;
+    }
 }
 
 ?>

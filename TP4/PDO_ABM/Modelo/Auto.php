@@ -121,7 +121,7 @@ public function insertar()
     $sql = "INSERT INTO auto(Patente, Marca, Modelo, DniDuenio)  VALUES('" . $this->getPatente() .  
         "','" . $this->getMarca() . 
         "','" . $this->getModelo() . 
-        "','" . $this->getObjDniDuenio()->getNroDni() . "');";
+        "','" . $this->getObjDniDuenio()[0]->getNroDni() . "');"; 
     if ($base->Iniciar()) {
         if ($base->Ejecutar($sql)) {
             // Eliminé la línea donde intentaba asignar elid a NroDni, ya que no corresponde en este contexto.
