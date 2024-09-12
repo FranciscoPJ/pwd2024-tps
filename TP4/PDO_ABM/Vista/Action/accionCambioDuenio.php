@@ -2,7 +2,7 @@
 include_once '../../configuracion.php';
 
 $datos = data_submitted();
-//print_r($datos);
+
 
 //verEstructura($datos);
 $resp = false;
@@ -11,25 +11,27 @@ $ObjPersona = new AbmPersona();
 $mensaje= "";
 $mensajePersona = "";
 $nuevosDatos;
+$auto="";
 if (isset($datos['Patente']) && isset($datos['NroDni'])){
 
     $patente = $datos['Patente'];
     $doc = $datos['NroDni'] ;
     
 $auto =$objAbmAuto->Buscar($datos);
- $actualObjPersona= $auto[0]->getObjDniDuenio();
+
 $persona = $ObjPersona->Buscar($datos);
 if(!$auto || !$persona){
+    $auto=null;
     $mensaje="Auto o Persona no encontrados";
 }else if($persona[0]){
-    if($actualObjPersona->getNroDni() === $datos['NroDni']){
+    if($datos['NroDni'] === $auto[0]->getObjDniDuenio()->getNroDni()){
         $mensaje="El auto ya pertenece a esta persona" ;
     }
     else if(!$mensaje){
-        print_r($auto[0]);
-        $nuevosDatos = $auto[0];
-        $auto[0]->setObjDniDuenio($persona[0]);
-        $auto[0]->modificacion( $nuevosDatos);
+        $auto[0]->getObjDniDuenio()->setNroDni($datos['NroDni']);
+      $ArrayAuto = (array)$auto[0];
+    
+        $objAbmAuto->modificacion($ArrayAuto);
        
     }
 }
@@ -47,23 +49,28 @@ if(!$auto || !$persona){
 
     <body>
     <h3>Datos Actualizados del Auto</h3>
-    <span> <?php echo $mensajeAuto ?></span>
     <span> <?php echo $mensaje ?></span>
     <div>
     <?php
-    if (isset($nuevosDatos)) {
-        $datosAuto = "
-        <p>Patente: " . $nuevosDatos->getPatente() . "</p> 
-        <p>Modelo: " . $nuevosDatos->getModelo() . "</p> 
-         <p>Modelo: " . $nuevosDatos->getMarca() . "</p> 
-        <p>DNI Dueño: " . $nuevosDatos->getObjDniDuenio()->getNroDni() . "</p>
-        ";
-        echo $datosAuto;
+    if (isset($auto)) {
+            echo "<pre>";
+    
+    echo "</pre>";
+
+    // Creamos el string con los datos del auto
+    $datosAuto = "
+    <p>Patente: " . $auto[0]->getPatente() . "</p>
+    <p>Modelo: " . $auto[0]->getModelo()  . "</p>
+    <p>Marca: " . $auto[0]->getMarca()  . "</p>
+    <p>DNI Duenio: ".$auto[0]->getObjDniDuenio()->getNroDni()."</p>
+    ";
+
+    echo $datosAuto;
     }
     ?>
     </div>
 
-    <br><a href="../nuevaPersona.php">Volver</a><br>
+    <br><a href="../CambioDuenio.php">Volver</a><br>
 
     </body>
 </html>

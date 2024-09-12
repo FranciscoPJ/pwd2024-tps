@@ -1,6 +1,4 @@
-<?php
-include_once "estructura/Header.php";
-?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -17,45 +15,26 @@ include_once "estructura/Header.php";
 
     ?>
 
-<<<<<<< HEAD
-    <main>
-        <form id="cambioDuenio" action="Action/accionCambioDuenio.php">
-            <div>
-                <label for="patente">Patente</label>
-                <input type="text" id="patente" class="form-control">
-                <span id="msj-patente" class="text-danger fw-semibold"></span>
-            </div>
-            <div>
-                <label for="doc">DNI</label>
-                <input type="text" id="doc" name="doc">
-                <span id="msj-doc" class="text-danger fw-semibold"></span>
-            </div>
-            <input type="submit" class="form-control">
-        </form>
-        <script>
-            $(document).ready(function() {
-                // Escuchar el evento submit del formulario
-                $('#cambioDuenio').on('submit', function(event) {
-                    // Prevenir el envío del formulario si no pasa las validaciones
-                    var isValid = true;
-                    var patente = $('#patente').val().trim();
-                    var doc = $('#doc').val().trim();
-=======
+
 <main>
-<form id="cambioDuenio" action="Action/accionCambioDuenio.php" method="GET">
-    <div>
-        <label for="patente">Patente</label>
+<?php
+include_once "estructura/Header.php";
+?>
+<form id="cambioDuenio" action="Action/accionCambioDuenio.php" method="GET" onclick="return Validacion()" style="width: 500px; margin:10% auto ;">
+    <div class="mb-3">
+        <label for="patente" class="form-label">Patente</label>
         <input type="text" id="patente" name="Patente" class="form-control">
         <span id="msj-patente" class="text-danger fw-semibold"></span>
     </div>
-    <div>
-        <label for="doc">DNI</label>
-        <input type="text" id="doc" name="NroDni">
+    <div class="mb-3">
+        <label for="doc" class="form-label">DNI</label>
+        <input type="text" id="doc" name="NroDni" class="form-control">
         <span id="msj-doc" class="text-danger fw-semibold"></span>
     </div>
-    <input type="submit" class="form-control">
+    <input type="submit" class="btn btn-primary">
 </form>
     <script>
+        function Validacion(){
     $(document).ready(function() {
         // Escuchar el evento submit del formulario
         $('#cambioDuenio').on('submit', function(event) {
@@ -63,7 +42,6 @@ include_once "estructura/Header.php";
             var isValid = true;
             var patente = $('#patente').val().trim();
             var doc = $('#doc').val().trim();
->>>>>>> 9fddd7341c092484d2dc07443baeba68e8700e5b
 
                     if (patente === '') {
                         isValid = false;
@@ -90,6 +68,7 @@ include_once "estructura/Header.php";
                     }
                 });
             });
+        }
         </script>
 
     </main>
