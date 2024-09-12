@@ -1,10 +1,17 @@
+<?php
+include_once "estructura/Header.php";
+?>
+
+
 <html>
+
 <head>
     <title>Nueva Vehículo</title>
 </head>
+
 <body align="center">
     <h2>Registrar Nuevo Vehiculo</h2>
-    
+
     <form action="Action/accionNuevoAuto.php" method="POST">
         <h3>Datos del Vehículo</h3>
         <label for="Patente">Patente:</label><br>
@@ -23,4 +30,8 @@
         <button type="submit">Registrar</button>
     </form>
 </body>
+
 </html>
+<?php
+include_once "estructura/Footer.php";
+?>

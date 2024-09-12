@@ -53,11 +53,11 @@
             width: 430px;
         }
 
-        li{
+        li {
             list-style-type: none;
         }
 
-        a{
+        a {
             color: black;
         }
     </style>
@@ -121,9 +121,23 @@
                     <li class="list-group-item"><a href="TP3/Vista/3.formulario.php">Ejercicio 3</a></li>
                 </ul>
             </div>
+            <!-- TP4 -->
+            <div class="me-3" style="width: 200px;">
+                <ul class="list-group">
+                    <li class="list-group-item active">TP4</li>
+                    <li class="list-group-item"><a href="TP4/PDO_ABM/Vista/buscarAuto.php">Ejercicio: buscarAuto</a></li>
+                    <li class="list-group-item"><a href="TP4/PDO_ABM/Vista/CambioDuenio.php">Ejercicio: CambioDuenio</a></li>
+                    <li class="list-group-item"><a href="TP4/PDO_ABM/Vista/listaPersonas.php">Ejercicio: listaPersonas</a></li>
+                    <li class="list-group-item"><a href="TP4/PDO_ABM/Vista/nuevaPersona.php">Ejercicio: nuevaPersona</a></li>
+                    <li class="list-group-item"><a href="TP4/PDO_ABM/Vista/NuevoAuto.php">Ejercicio: NuevoAuto</a></li>
+                    <li class="list-group-item"><a href="TP4/PDO_ABM/Vista/verAutos.php">Ejercicio: verAutos</a></li>
+                </ul>
+            </div>
+
+
         </div>
     </main>
-        <br>
+    <br>
     <footer class="bg-info">
         <div>
             Universidad Nacional del Comahue

@@ -100,6 +100,20 @@
                         <li><a class="dropdown-item" href="../../TP3/Vista/3.formulario.php">Ejercicio 3</a></li>
                     </ul>
                 </li>
+
+                <!-- TP4 -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">TP4</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="../../TP4/PDO_ABM/Vista/buscarAuto.php">Ejercicio: buscarAuto </a></li>
+                        <li><a class="dropdown-item" href="../../TP4/PDO_ABM/Vista/CambioDuenio.php">Ejercicio: CambioDuenio </a></li>
+                        <li><a class="dropdown-item" href="../../TP4/PDO_ABM/Vista/listaPersonas.php">Ejercicio: listaPersonas </a></li>
+                        <li><a class="dropdown-item" href="../../TP4/PDO_ABM/Vista/nuevaPersona.php">Ejercicio: nuevaPersona </a></li>
+                        <li><a class="dropdown-item" href="../../TP4/PDO_ABM/Vista/NuevoAuto.php">Ejercicio: NuevoAuto</a></li>
+                        <li><a class="dropdown-item" href="../../TP4/PDO_ABM/Vista/verAutos.php">Ejercicio: verAutos</a></li>
+
+                    </ul>
+
             </ul>
 
         </nav>

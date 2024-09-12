@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <!-- jquery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,7 +53,9 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-info">
 
-            <a class="titulo" href="../../Menu.php"><h2>Programación Web Dinámica 2024 - Grupo 21</h2></a>
+            <a class="titulo" href="../../Menu.php">
+                <h2>Programación Web Dinámica 2024 - Grupo 21</h2>
+            </a>
 
             <ul class="navbar-nav">
                 <!-- TP1 -->
@@ -95,6 +97,24 @@
                         <li><a class="dropdown-item" href="3.formulario.php">Ejercicio 3</a></li>
                     </ul>
                 </li>
+
+
+                <!-- TP4 -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">TP4</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="../../TP4/PDO_ABM/Vista/buscarAuto.php">Ejercicio: buscarAuto </a></li>
+                        <li><a class="dropdown-item" href="../../TP4/PDO_ABM/Vista/CambioDuenio.php">Ejercicio: CambioDuenio </a></li>
+                        <li><a class="dropdown-item" href="../../TP4/PDO_ABM/Vista/listaPersonas.php">Ejercicio: listaPersonas </a></li>
+                        <li><a class="dropdown-item" href="../../TP4/PDO_ABM/Vista/nuevaPersona.php">Ejercicio: nuevaPersona </a></li>
+                        <li><a class="dropdown-item" href="../../TP4/PDO_ABM/Vista/NuevoAuto.php">Ejercicio: NuevoAuto</a></li>
+                        <li><a class="dropdown-item" href="../../TP4/PDO_ABM/Vista/verAutos.php">Ejercicio: verAutos</a></li>
+
+                    </ul>
+                </li>
+
+
+
             </ul>
 
         </nav>

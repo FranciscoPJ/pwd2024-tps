@@ -4,19 +4,23 @@ include_once "../configuracion.php";
 $objAbmPersona = new AbmPersona();
 $listaPersonas = $objAbmPersona->buscar(null);
 ?>
+<?php
+include_once "estructura/Header.php";
+?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
+
 <head>
-<title>Lista Persona</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Lista Persona</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 
 <body>
     <h3 align="center">Ejercicio 5 - Lista de Personas</h3>
     <table border="1" align="center">
-    <?php	
-    if(count($listaPersonas) > 0){
+        <?php
+        if (count($listaPersonas) > 0) {
             echo "<tr>";
             echo "<th>DNI</th>";
             echo "<th>Apellido</th>";
@@ -27,23 +31,20 @@ $listaPersonas = $objAbmPersona->buscar(null);
             echo "<th>Link</th>";
             echo "</tr>";
 
-        foreach ($listaPersonas as $objPersona) { 
-            
-            echo '<tr><td style="width:100px;">'.$objPersona->getNroDni().'</td>';
-            echo '<td style="width:100px;">'.$objPersona->getApellido().'</td>';
-            echo '<td style="width:100px;">'.$objPersona->getNombre().'</td>';
-            echo '<td style="width:100px;">'.$objPersona->getFechaNac().'</td>';
-            echo '<td style="width:100px;">'.$objPersona->getTelefono().'</td>';
-            echo '<td style="width:100px;" align="center">' .$objPersona->getDomicilio() .'</td>';
-            echo '<td style="width:100px;" align="center"><a href="Action/autosPersona.php?NroDni=' . $objPersona->getNroDni() . '">Ver Auto</a></td></tr>'; 
+            foreach ($listaPersonas as $objPersona) {
 
-            
+                echo '<tr><td style="width:100px;">' . $objPersona->getNroDni() . '</td>';
+                echo '<td style="width:100px;">' . $objPersona->getApellido() . '</td>';
+                echo '<td style="width:100px;">' . $objPersona->getNombre() . '</td>';
+                echo '<td style="width:100px;">' . $objPersona->getFechaNac() . '</td>';
+                echo '<td style="width:100px;">' . $objPersona->getTelefono() . '</td>';
+                echo '<td style="width:100px;" align="center">' . $objPersona->getDomicilio() . '</td>';
+                echo '<td style="width:100px;" align="center"><a href="Action/autosPersona.php?NroDni=' . $objPersona->getNroDni() . '">Ver Auto</a></td></tr>';
+            }
+        } else {
+            echo "<div>no hay personas cargadas</div>";
         }
-
-    } else {
-        echo "<div>no hay personas cargadas</div>";
-    }
-    ?>
+        ?>
     </table>
 
     <!-- Si deseas pasar un valor a otra página, como el DNI de una persona, deberías hacerlo usando la URL de la siguiente manera:
@@ -62,4 +63,8 @@ if (isset($_GET['dni'])) {
     -->
 
 </body>
+
 </html>
+<?php
+include_once "estructura/Footer.php";
+?>
