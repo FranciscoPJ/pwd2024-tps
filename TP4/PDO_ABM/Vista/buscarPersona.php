@@ -1,12 +1,19 @@
 <?php
 include_once "Estructura/Header.php";
 ?>
-        <h1>Buscar Persona</h1>
-        <form action="Action/accionBuscarPersona.php" method="POST" onsubmit="return validarFormulario()">
-            <label for="NroDni ">Numero de Documento:</label>
-            <input type="text" id="NroDni" name="NroDni">
-            <input type="submit" value="Buscar">
-        </form>
+<h1>Buscar Persona</h1>
+<div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <form action="Action/accionBuscarPersona.php" method="POST" onsubmit="return validar()">
+        <div class="form-group">
+            <label for="NroDni">Número de Documento:</label>
+            <input type="text" class="form-control" id="NroDni" name="NroDni">
+            <div class="invalid-feedback">Por favor, ingrese un número de documento válido.</div>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Buscar" style="margin-top: 8px;">
+    </form>
+</div>
+
+<script src="Assets/js/9.val_BuscarPersona9.js"></script>
 <?php
 include_once "Estructura/Footer.php";
 ?>
