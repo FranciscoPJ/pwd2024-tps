@@ -2,8 +2,8 @@
 include_once "Estructura/Header.php";
 ?>
 <h1>Buscar Persona</h1>
-<div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
-    <form action="Action/accionBuscarPersona.php" method="POST" onsubmit="return validar()">
+<div class="d-flex justify-content-center align-items-center" style="height: 80vh">
+    <form action="Action/accionBuscarPersona.php" method="POST" onsubmit="return validar()" style="margin-block:auto">
         <div class="form-group">
             <label for="NroDni">Número de Documento:</label>
             <input type="text" class="form-control" id="NroDni" name="NroDni">

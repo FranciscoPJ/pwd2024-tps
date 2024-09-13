@@ -41,7 +41,7 @@
         }
         </script>
 
-<form id="cambioDuenio" action="Action/accionCambioDuenio.php" method="GET" onclick="return Validacion()" style="width: 500px; margin:10% auto ;">
+<form id="cambioDuenio" action="Action/accionCambioDuenio.php" method="POST" onclick="return Validacion()" style="width: 500px; margin:10% auto ;">
     <div class="mb-3">
         <label for="patente" class="form-label">Patente</label>
         <input type="text" id="patente" name="Patente" class="form-control">
