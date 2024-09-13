@@ -2,18 +2,23 @@
 include_once "Estructura/Header.php";
 ?>
 
-    <h2>4- Formulario Auto</h2>
-    <div class="d-flex justify-content-center align-items-center">
-    <form action="Action/accionBuscarAuto.php" method="POST">
-<div class="form-group">
-<label for="patente">Nro Patente</label><br>
-<input  class="form-control" type="text" id="Patente" name="Patente" placeholder="Ingrese un numero de patente" style="width: 300px;">
-</div>
-        <input type="hidden" id="accion" name="accion" value="buscarPatente">
-        <br><br>
-        <input type="submit" value="enviar" class="btn btn-primary">
+<h2>Buscar Auto</h2>
+<div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <form action="Action/accionBuscarAuto.php" method="POST" onsubmit="return validar()">
+
+        <div class="form-group">
+            <label for="patente">Nro Patente</label><br>
+            <input type="text" id="Patente" class="form-control" name="Patente" placeholder="Ingrese un numero de patente" style="width: 300px;">
+            <input type="hidden" id="accion" name="accion" value="buscarPatente">
+            <div class="invalid-feedback">Por favor, ingrese un número de patente válido.</div>
+
+            <br><br>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Buscar" style="margin-top: 8px;">
     </form>
-    </div>
+</div>
+<script src="Assets/js/4.val_buscarAuto.js"></script>
+
 <?php
 include_once "Estructura/Footer.php";
 ?>
