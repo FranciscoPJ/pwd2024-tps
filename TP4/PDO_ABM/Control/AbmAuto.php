@@ -109,7 +109,7 @@ class AbmAuto{
      */
     public function buscar($param){
         // $where = " true ";
-        $where = " ";
+        $where = "";
 
         if ($param<>NULL){
 

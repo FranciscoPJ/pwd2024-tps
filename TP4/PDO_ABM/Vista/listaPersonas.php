@@ -5,7 +5,7 @@ $listaPersonas = $objAbmPersona->buscar(null);
 ?>
 
 <?php
-include_once "estructura/Header.php";
+include_once "Estructura/Header.php";
 ?>
 
     <h3 align="center">Ejercicio 5 - Lista de Personas</h3>
