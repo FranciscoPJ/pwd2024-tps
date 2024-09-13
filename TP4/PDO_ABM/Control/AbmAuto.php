@@ -91,13 +91,18 @@ class AbmAuto{
      * @return boolean
      */
     public function modificacion($param){
-        //echo "Estoy en modificacion";
+     
         $resp = false;
+        
         if ($this->seteadosCamposClaves($param)){
+           
             $elObjtAuto = $this->cargarObjeto($param);
+         
             if($elObjtAuto!=null and $elObjtAuto->modificar()){
+     
                 $resp = true;
             }
+          
         }
         return $resp;
     }
@@ -137,7 +142,7 @@ class AbmAuto{
         }
         echo $sql; // Imprime la consulta para depuración*/ 
         
-        //echo $where;
+      
         $arreglo = Auto::listar($where);  
         return $arreglo;
         

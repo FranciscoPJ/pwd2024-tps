@@ -3,21 +3,7 @@
     include_once "Estructura/Header.php";
 ?>
 
-<form id="cambioDuenio" action="Action/accionCambioDuenio.php" method="GET" onclick="return Validacion()" style="width: 500px; margin:10% auto ;">
-    <div class="mb-3">
-        <label for="patente" class="form-label">Patente</label>
-        <input type="text" id="patente" name="Patente" class="form-control">
-        <span id="msj-patente" class="text-danger fw-semibold"></span>
-    </div>
-    <div class="mb-3">
-        <label for="doc" class="form-label">DNI</label>
-        <input type="text" id="doc" name="NroDni" class="form-control">
-        <span id="msj-doc" class="text-danger fw-semibold"></span>
-    </div>
-    <input type="submit" class="btn btn-primary">
-</form>
-
-    <script>
+<script>
         function Validacion(){
     $(document).ready(function() {
         // Escuchar el evento submit del formulario
@@ -54,6 +40,20 @@
             });
         }
         </script>
+
+<form id="cambioDuenio" action="Action/accionCambioDuenio.php" method="GET" onclick="return Validacion()" style="width: 500px; margin:10% auto ;">
+    <div class="mb-3">
+        <label for="patente" class="form-label">Patente</label>
+        <input type="text" id="patente" name="Patente" class="form-control">
+        <span id="msj-patente" class="text-danger fw-semibold"></span>
+    </div>
+    <div class="mb-3">
+        <label for="doc" class="form-label">DNI</label>
+        <input type="text" id="doc" name="NroDni" class="form-control">
+        <span id="msj-doc" class="text-danger fw-semibold"></span>
+    </div>
+    <input type="submit" class="btn btn-primary">
+</form>
 
 <?php
 include_once "Estructura/Footer.php";

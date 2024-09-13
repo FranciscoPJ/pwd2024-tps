@@ -8,69 +8,83 @@ $datos = data_submitted();
 $resp = false;
 $objAbmAuto = new AbmAuto();
 $ObjPersona = new AbmPersona();
-$mensaje= "";
+$mensaje = "";
 $mensajePersona = "";
 $nuevosDatos;
-$auto="";
-if (isset($datos['Patente']) && isset($datos['NroDni'])){
+$auto = "";
+$datosAuto = null;
+if (isset($datos['Patente']) && isset($datos['NroDni'])) {
 
     $patente = $datos['Patente'];
-    $doc = $datos['NroDni'] ;
-    
-$auto =$objAbmAuto->Buscar($datos);
+    $doc = $datos['NroDni'];
 
-$persona = $ObjPersona->Buscar($datos);
-if(!$auto || !$persona){
-    $auto=null;
-    $mensaje="Auto o Persona no encontrados";
-}else if($persona[0]){
-    if($datos['NroDni'] === $auto[0]->getObjDniDuenio()->getNroDni()){
-        $mensaje="El auto ya pertenece a esta persona" ;
+    $auto = $objAbmAuto->Buscar($datos);
+
+    $persona = $ObjPersona->Buscar($datos);
+    if (!$auto || !$persona) {
+        $auto = null;
+        $mensaje = "Patente del Auto o Persona no encontrados";
+    } else if ($persona[0]) {
+     
+        if ($datos['NroDni'] == $auto[0]->getObjDniDuenio()->getNroDni()) {
+            $mensaje = "El auto ya pertenece a esta persona";
+            $auto = null;
+
+        } else if (!$mensaje) {
+           
+     
+            $auto[0]->setObjDniDuenio($persona[0]);
+            
+            $arrayAuto = [
+                "Patente" => $auto[0]->getPatente(),
+                "Marca" => $auto[0]->getMarca(),
+                "Modelo" => $auto[0]->getModelo(),
+                "DniDuenio" => $auto[0]->getObjDniDuenio(),
+            ];
+         
+            if (!$objAbmAuto->modificacion($arrayAuto)) {
+                $auto = null;
+            }
+
+        }
     }
-    else if(!$mensaje){
-        $auto[0]->getObjDniDuenio()->setNroDni($datos['NroDni']);
-      $ArrayAuto = (array)$auto[0];
-    
-        $objAbmAuto->modificacion($ArrayAuto);
-       
-    }
-}
-
-
 }
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-    <head>
+
+<head>
     <title>Nueva Persona</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    </head>
+</head>
 
-    <body>
+<body>
     <h3>Datos Actualizados del Auto</h3>
     <span> <?php echo $mensaje ?></span>
     <div>
-    <?php
-    if (isset($auto)) {
+        <?php
+        if (isset($auto)) {
             echo "<pre>";
-    
-    echo "</pre>";
 
-    // Creamos el string con los datos del auto
-    $datosAuto = "
+            echo "</pre>";
+
+            // Creamos el string con los datos del auto
+            $datosAuto = "
     <p>Patente: " . $auto[0]->getPatente() . "</p>
-    <p>Modelo: " . $auto[0]->getModelo()  . "</p>
-    <p>Marca: " . $auto[0]->getMarca()  . "</p>
-    <p>DNI Duenio: ".$auto[0]->getObjDniDuenio()->getNroDni()."</p>
+    <p>Modelo: " . $auto[0]->getModelo() . "</p>
+    <p>Marca: " . $auto[0]->getMarca() . "</p>
+    <p>DNI Duenio: " . $auto[0]->getObjDniDuenio()->getNroDni() . "</p>
     ";
 
-    echo $datosAuto;
-    }
-    ?>
+            echo $datosAuto;
+        }
+        ?>
     </div>
 
     <br><a href="../CambioDuenio.php">Volver</a><br>
 
-    </body>
+</body>
+
 </html>
