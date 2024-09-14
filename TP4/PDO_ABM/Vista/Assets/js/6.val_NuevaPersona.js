@@ -59,7 +59,13 @@ function validar() {
         nombre.addClass('is-valid');
     }
 
-
+ // Fecha de Nacimiento
+    if (valorFechaNac === "" || valorFechaNac == null) {
+    fechaNac.addClass('is-invalid');
+    valido = false;
+    } else {
+    fechaNac.addClass('is-valid');
+    }
     // Validación de Dirección - Formato de letras y números
     if (!/^[A-Za-z\s]+\d+$/.test(valorDire)) {
         dire.addClass('is-invalid');

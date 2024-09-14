@@ -63,7 +63,7 @@ include_once "Estructura/Header.php";
             <button type="submit" class="btn btn-primary">Registrar</button>
         </form>
     </div>
-    <script src="Assets/js/7.val_NuevoAuto.js"></script>
+    <script src="Assets/js/7.val_nuevoAuto.js"></script>
 
     <?php
     include_once "Estructura/Footer.php";
