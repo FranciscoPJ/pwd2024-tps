@@ -18,12 +18,12 @@ function validar() {
     fechaNac.removeClass('is-invalid is-valid');
     
     // Obtener valores
-    const valorDni = nroDni.val();
-    const valorTel = tel.val();
-    const valorDire = dire.val();
-    const valorApellido = apellido.val();
-    const valorNombre = nombre.val();
-    const valorFechaNac = fechaNac.val();
+    var valorDni = nroDni.val();
+    var valorTel = tel.val();
+    var valorDire = dire.val();
+    var valorApellido = apellido.val();
+    var valorNombre = nombre.val();
+    var valorFechaNac = fechaNac.val();
     
 
     // Validación de DNI - 7 a 8 dígitos
@@ -59,15 +59,22 @@ function validar() {
         nombre.addClass('is-valid');
     }
 
- // Fecha de Nacimiento
-    if (valorFechaNac === "" || valorFechaNac == null) {
+    valorFechaNac = valorFechaNac.replace(/\//g, '-').replace(/\s+/g, '');  // Reemplaza "/" por "-" y elimina espacios
+ // Validación de Fecha de Nacimiento en formato yyyy-m-d o yyyy-mm-dd
+var formatoFecha = /^\d{4}-\d{1,2}-\d{1,2}$/;  // Expresión regular para yyyy-m-d o yyyy-mm-dd
+
+if (valorFechaNac === "" || valorFechaNac === null || !formatoFecha.test(valorFechaNac)) {
     fechaNac.addClass('is-invalid');
     valido = false;
-    } else {
-    fechaNac.addClass('is-valid');
-    }
+}else {
+    fechaNac.addClass('is-valid');  // Si cumple con el formato
+}
+
+
+
+
     // Validación de Dirección - Formato de letras y números
-    if (!/^[A-Za-z\s]+\d+$/.test(valorDire)) {
+    if (!/^[A-Za-z0-9\s]+$/.test(valorDire)) {  // Permite letras, números, espacios, comas, puntos y guiones
         dire.addClass('is-invalid');
         valido = false;
     } else {

@@ -31,8 +31,8 @@ include_once "Estructura/Header.php";
         <div class="form-group">
             <label for="fechaNac" class="form-label">Fecha de Nacimiento:</label><br>
             <!-- <input type="date" id="fechaNac" name="fechaNac"><br><br> (cambie el date por el text) -->
-            <input type="text" id="fechaNac" name="fechaNac" placeholder="anio-mes-dia" class="form-control">
-            <div class="invalid-feedback">Por favor, ingrese un DNI válido.</div>
+            <input type="text" id="fechaNac" name="fechaNac" placeholder="Anio/Mes/Día" class="form-control">
+            <div class="invalid-feedback">Por favor, ingrese formato fecha indicado (Anio/Mes/Dia).</div>
 
         </div>
 
