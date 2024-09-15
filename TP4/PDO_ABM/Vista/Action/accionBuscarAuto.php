@@ -48,51 +48,57 @@ if (isset($datos['accion'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accion Buscar Auto</title>
+    <!--  Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="bg-light">
+    <div class="container mt-5"></div>
     <p>
         <?php
-        echo "<h2 align='center'>" . $mensaje . "</h2>";
+        echo "<h2 class='text-center text-primary'>" . $mensaje . "</h2>";
         ?>
     </p>
 
     <div>
-        <?php
 
-        if (count($arrayDato) > 0) {
+        <div class="table-responsive mx-5">
 
-            echo "<table border='1' align='center'>";
-            echo "<tr>";
-            echo "<th>Patente</th>";
-            echo "<th>Marca</th>";
-            echo "<th>Modelo</th>";
-            echo "<th>DNI</th>";
-            echo "</tr>";
+            <?php
+            if (count($arrayDato) > 0) {
+                echo '<table class="my-4" >';
+                echo '<table class="table table-bordered table-striped table-hover text-center">';
+                echo '<thead class="table-dark">';
+                echo '<tr>';
+                echo '<th>Patente</th>';
+                echo '<th>Marca</th>';
+                echo '<th>Modelo</th>';
+                echo '<th>DNI</th>';
+                echo '</tr>';
+                echo '</thead>';
+                echo '<tbody>';
 
-            foreach ($arrayDato as $dato) {
+                foreach ($arrayDato as $dato) {
 
-                echo '<tr><td style="width:100px;"  align="center">' . $dato->getPatente() . '</td>';
+                    echo '<tr>';
+                    echo '<td>' . $dato->getPatente() . '</td>';
+                    echo '<td>' . $dato->getMarca() . '</td>';
+                    echo '<td>' . $dato->getModelo() . '</td>';
+                    echo '<td>' . $dato->getObjDniDuenio()->getNroDni() . '</td>';
+                    echo '</tr>';
+                }
 
-                echo '<td style="width:100px;" align="center">' . $dato->getMarca() . '</td>';
-
-                echo '<td style="width:100px;" align="center">' . $dato->getModelo() . '</td>';
-
-                echo '<td style="width:100px;" align="center">' . $dato->getObjDniDuenio()->getNroDni() . '</td>';
-
-                echo "</tr>";
+                echo '</tbody>';
+                echo '</table>';
+            } else {
+                echo "<div class='alert alert-warning text-center'>No tiene un auto asociado</div>";
             }
-
-            echo "</table>";
-
-        } else {
-            echo "<div align='center'>No tiene un auto asociado</div>";
-        }
-
-        ?>
+            ?>
+        </div>
+        <div class="text-center mt-4">
+            <a href="../buscarAuto.php" class="btn btn-primary">Volver</a>
+        </div>
     </div>
-    <br>
-    <div align="center"><a href="../buscarAuto.php">volver</a></div>
 </body>
 
 </html>
