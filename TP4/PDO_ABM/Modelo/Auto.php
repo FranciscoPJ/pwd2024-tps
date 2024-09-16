@@ -210,11 +210,10 @@ public static function listar($parametro = "")
                 }
             }
 
-        }  /*else {
-            $this->setmensajeoperacion("Persona->listar: " . $base->getError());
-        }  */
+        }  
     } else {
-        $this->setmensajeoperacion("Auto->listar: " . $base->getError());
+        //$this->setmensajeoperacion("Auto->listar: " . $base->getError());
+        throw new Exception("Auto->listar: " . $base->getError());
     }
 
     return $arreglo;

@@ -39,17 +39,17 @@ if (isset($datos['accion'])) {
         } elseif ($resp == 0) {
             echo '<div class="alert alert-secondary" role="alert">';
             echo '<h4 class="alert-heading">Persona Sin Modificacion</h4>';
-            echo "<div>No se realizaron cambios en la persona.</div>";
+            echo "<p>No se realizaron cambios en la persona.</p>";
             echo '</div>';
         } elseif ($resp == -1) {
             echo '<div class="alert alert-danger" role="alert">';
             echo '<h4 class="alert-heading">Error Valores Nulos</h4>';
-            echo "<div>Error: No se permiten valores vacíos o nulos en los campos requeridos.</div>";
+            echo "<p>Error: No se permiten valores vacíos o nulos en los campos requeridos.</p>";
             echo '</div>';
         } else {
             echo '<div class="alert alert-danger" role="alert">';
             echo '<h4 class="alert-heading">Error Valores Nulos</h4>';
-            echo "<div>La acción de modificacion no pudo concretarse.</div>";
+            echo "<p>La acción de modificacion no pudo concretarse.</p>";
             echo '</div>';
         }
         ?>
