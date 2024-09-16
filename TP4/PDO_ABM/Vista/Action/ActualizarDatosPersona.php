@@ -10,9 +10,7 @@ $resp = false;
 if (isset($datos['accion'])) {
 
     if($datos['accion']=='editar'){        
-        if($abmPersona->modificacion($datos)){
-            $resp = true;
-        }
+        $resp = $abmPersona->modificacion($datos);
     }
 
 }
@@ -33,15 +31,25 @@ if (isset($datos['accion'])) {
 <body>
     <div class="container mt-5">
         <?php
-        if ($resp) {
+        if ($resp == 1) {
             echo '<div class="alert alert-success" role="alert">';
             echo '<h4 class="alert-heading">Persona Modificada</h4>';
-            echo '<p>La acción ' . htmlspecialchars($datos['accion']) . ' se realizó correctamente.</p>';
+            echo "<p>Persona modificada con éxito.</p>";
+            echo '</div>';
+        } elseif ($resp == 0) {
+            echo '<div class="alert alert-secondary" role="alert">';
+            echo '<h4 class="alert-heading">Persona Sin Modificacion</h4>';
+            echo "<div>No se realizaron cambios en la persona.</div>";
+            echo '</div>';
+        } elseif ($resp == -1) {
+            echo '<div class="alert alert-danger" role="alert">';
+            echo '<h4 class="alert-heading">Error Valores Nulos</h4>';
+            echo "<div>Error: No se permiten valores vacíos o nulos en los campos requeridos.</div>";
             echo '</div>';
         } else {
             echo '<div class="alert alert-danger" role="alert">';
-            echo '<h4 class="alert-heading">Error</h4>';
-            echo '<p>La acción ' . htmlspecialchars($datos['accion']) . ' no pudo concretarse.</p>';
+            echo '<h4 class="alert-heading">Error Valores Nulos</h4>';
+            echo "<div>La acción de modificacion no pudo concretarse.</div>";
             echo '</div>';
         }
         ?>

@@ -149,26 +149,54 @@ class Persona
 
     public function modificar()
     {
-        $resp = false;
+        $resp = -1;
         $base = new BaseDatos();
-        $sql = "UPDATE persona SET Apellido='" . $this->getApellido() .  
-        "', Nombre='" . $this->getNombre() . 
-        "', fechaNac='" . $this->getFechaNac() . 
-        "', Telefono='" . $this->getTelefono() . 
-        "', Domicilio='" . $this->getDomicilio() . 
-        "' WHERE NroDni=" . $this->getNroDni();
 
-        if ($base->Iniciar()) {
-            if ($base->Ejecutar($sql)) {
-                $resp = true;
+        // Verificar que los campos no sean null o vacíos (trim elimina espacios en blanco)
+        if (
+            trim($this->getApellido()) == "null" || trim($this->getNombre()) == "null" ||
+            trim($this->getFechaNac()) == "null" || trim($this->getTelefono()) == "null" ||
+            trim($this->getDomicilio()) == "null"
+        ) {
+
+            // Si alguno de los campos requeridos es null o está vacío, retornamos un código de error
+            $this->setmensajeoperacion("Persona->modificar: " . $base->getError());
+            // Indicar un código de error especial para este caso
+
+        } else {
+
+            $sql = "UPDATE persona SET Apellido='" . $this->getApellido() .
+                "', Nombre='" . $this->getNombre() .
+                "', fechaNac='" . $this->getFechaNac() .
+                "', Telefono='" . $this->getTelefono() .
+                "', Domicilio='" . $this->getDomicilio() .
+                "' WHERE NroDni= '" . $this->getNroDni() . "'";
+
+            if ($base->Iniciar()) {                
+                /*
+                No ponemos $base->Ejecutar($sql) en una condicion de un if porque solo retorna un boolean, tiene 2 valores, mas alla de la cant de rowCount().
+                Por lo tanto, para el ej9 del Tp4 se necesita 3 valores para poder indentificar las modificaciones. No 2 valores.
+                */
+                $filasAfectadas = $base->Ejecutar($sql);
+
+                if ($filasAfectadas >= 0) {
+                    if ($filasAfectadas > 0) {
+                        // Se modificó correctamente
+                        $resp = 1;
+                    } else {
+                        // No se realizaron cambios                            
+                        $resp = 0;
+                    }
+                }
+
             } else {
                 $this->setmensajeoperacion("Persona->modificar: " . $base->getError());
             }
-        } else {
-            $this->setmensajeoperacion("Persona->modificar: " . $base->getError());
         }
+
         return $resp;
     }
+
 
     public function eliminar()
     {
@@ -197,6 +225,7 @@ class Persona
         }
         $res = $base->Ejecutar($sql);
         if ($res > -1) {
+
             if ($res > 0) {
 
                 while ($row = $base->Registro()) {
@@ -205,11 +234,13 @@ class Persona
                     array_push($arreglo, $obj);
                 }
 
-            }  /*else {
-                $this->setmensajeoperacion("Persona->listar: " . $base->getError());
-            }  */
+            }  else {
+                //$this->setmensajeoperacion("Persona->listar: " . $base->getError());
+                throw new Exception("Persona->listar: " . $base->getError());
+            }  
         } else {
-            $this->setmensajeoperacion("Persona->listar: " . $base->getError());
+            //$this->setmensajeoperacion("Persona->listar: " . $base->getError());
+            throw new Exception("Persona->listar: " . $base->getError());
         }
 
         return $arreglo;

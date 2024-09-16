@@ -85,14 +85,27 @@ class AbmPersona{
      * @param array $param
      * @return boolean
      */
-    public function modificacion($param){
-        //echo "Estoy en modificacion";
-        $resp = false;
-        if ($this->seteadosCamposClaves($param)){
+    public function modificacion($param) {
+        $resp = -1; // Valor predeterminado para "fallo en la modificación"
+    
+        if ($this->seteadosCamposClaves($param)) {
             $elObjtPersona = $this->cargarObjeto($param);
-            if($elObjtPersona!=null and $elObjtPersona->modificar()){
-                $resp = true;
-            }
+            
+            //verEstructura($elObjtPersona);// aca obtiene el objeto------------
+
+            if ($elObjtPersona !== null) {
+
+                $resultadoModificacion = $elObjtPersona->modificar();
+
+                if ($resultadoModificacion === 1) { 
+                    $resp = 1; // Modificación exitosa
+                } else {
+                    if ($resultadoModificacion === 0) {
+                        $resp = 0; // No se realizaron cambios
+                    }
+                } 
+            } 
+
         }
         return $resp;
     }
