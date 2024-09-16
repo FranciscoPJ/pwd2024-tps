@@ -13,6 +13,8 @@ if (isset($datos['accion'])) {
 
     if ($datos['accion'] == 'nuevo') {
 
+        echo $objAbmPersona->existePersona(["NroDni" => $datos['DniDuenio']]);
+
         if ($objAbmPersona->existePersona(["NroDni" => $datos['DniDuenio']])) { //si  existe el objeto persona, agregar persona
 
             $objPersona = $objAbmPersona->buscar(["NroDni" => $datos['DniDuenio']]); // obtengo el objeto
@@ -27,7 +29,7 @@ if (isset($datos['accion'])) {
             }
         } else { //sino (si no existe la persona, entonces le agrego el auto) 
 
-            echo "<div>No existe esta persona</div>";
+            //echo "<div>No existe esta persona</div>";
 
         } //fin else 
 
@@ -52,7 +54,7 @@ if (isset($datos['accion'])) {
             echo "<h3>Nueva Persona</h3><br>";
             echo "<div>La accion " . $datos['accion'] . " se realizo correctamente.</div>";
         } else {
-            echo "<div>La accion " . $datos['accion'] . " no pudo concretarse.</div>";
+            echo "<div>No existe esta persona</div>";
             echo "<a href='../nuevaPersona.php'>Cargar Nueva Persona</a><br>";
         }
         ?>

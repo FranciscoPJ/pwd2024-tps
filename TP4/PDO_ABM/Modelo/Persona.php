@@ -234,10 +234,7 @@ class Persona
                     array_push($arreglo, $obj);
                 }
 
-            }  else {
-                //$this->setmensajeoperacion("Persona->listar: " . $base->getError());
-                throw new Exception("Persona->listar: " . $base->getError());
-            }  
+            }   
         } else {
             //$this->setmensajeoperacion("Persona->listar: " . $base->getError());
             throw new Exception("Persona->listar: " . $base->getError());

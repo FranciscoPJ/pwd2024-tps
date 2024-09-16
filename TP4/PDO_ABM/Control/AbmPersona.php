@@ -159,7 +159,7 @@ class AbmPersona{
 
         $existe = false;
         $arregloPersona = $this->buscar($param); //obtiene arreglo (si es que existe o arreglo vacio (si no existe))
-        if(count($arregloPersona) > 0){ //si es mayor a 0, obtiene el objeto, retorna true (malo porque ya existe en la base de datos)
+        if(count($arregloPersona) > 0){ //si es mayor a 0, obtiene el objeto, retorna true (malo porque ya existe en la base de datos)            
             $existe = true;
         }
         // falso (bueno)
