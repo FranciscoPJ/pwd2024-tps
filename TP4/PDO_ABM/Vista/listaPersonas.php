@@ -2,76 +2,55 @@
 include_once "../configuracion.php";
 $objAbmPersona = new AbmPersona();
 $listaPersonas = $objAbmPersona->darArray(null);
+include_once "Estructura/Header.php";
+
 ?>
 
-<!DOCTYPE html>
-<html lang="es">
+<h3 class="text-center my-4">Ejercicio 5 - Lista de Personas</h3>
+<div class="container">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista personas</title>
-    <!--  Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
+    <table class="table table-bordered table-striped table-hover text-center">
+        <thead class="table-dark">
+            <tr>
+                <th> DNI </th>
+                <th> Apellido </th>
+                <th> Nombre </th>
+                <th> Fecha de Nacimiento </th>
+                <th> Telefono </th>
+                <th> Domicilio </th>
+                <th> Link </th>
 
-<body>
-    <header>
-        <?php
-        include_once "Estructura/Header.php";
-        ?>
-    </header>
-    <main>
-        <h3 class="text-center my-4">Ejercicio 5 - Lista de Personas</h3>
-        <div class="container">
+            </tr>
 
-            <table class="table table-bordered table-striped table-hover text-center">
-                <thead class="table-dark">
-                    <tr>
-                        <th> DNI </th>
-                        <th> Apellido </th>
-                        <th> Nombre </th>
-                        <th> Fecha de Nacimiento </th>
-                        <th> Telefono </th>
-                        <th> Domicilio </th>
-                        <th> Link </th>
-
-                    </tr>
-
-                </thead>
-                <tbody>
-                    <?php
-                    if (count($listaPersonas) > 0) {
+        </thead>
+        <tbody>
+            <?php
+            if (count($listaPersonas) > 0) {
 
 
-                        foreach ($listaPersonas as $personaArray) {
+                foreach ($listaPersonas as $personaArray) {
 
-                            echo '<tr><td style="width:100px;">' . $personaArray['NroDni'] . '</td>';
-                            echo '<td style="width:100px;">' . $personaArray['Apellido'] . '</td>';
-                            echo '<td style="width:100px;">' . $personaArray['Nombre'] . '</td>';
-                            echo '<td style="width:100px;">' . $personaArray['fechaNac'] . '</td>';
-                            echo '<td style="width:100px;">' . $personaArray['Telefono']. '</td>';
-                            echo '<td style="width:100px;" align="center">' . $personaArray['Domicilio'] . '</td>';
-                            echo '<td style="width:100px;" align="center"><a href="Action/autosPersona.php?NroDni=' . $personaArray['NroDni'] . '">Ver Auto</a></td></tr>';
-                        }
-                    } else {
-                        echo '<tr><td colspan="5">No hay personas cargados</td></tr>';
-                    }
-                    ?>
-                </tbody>
-            </table>
+                    echo '<tr><td style="width:100px;">' . $personaArray['NroDni'] . '</td>';
+                    echo '<td style="width:100px;">' . $personaArray['Apellido'] . '</td>';
+                    echo '<td style="width:100px;">' . $personaArray['Nombre'] . '</td>';
+                    echo '<td style="width:100px;">' . $personaArray['fechaNac'] . '</td>';
+                    echo '<td style="width:100px;">' . $personaArray['Telefono'] . '</td>';
+                    echo '<td style="width:100px;" align="center">' . $personaArray['Domicilio'] . '</td>';
+                    echo '<td style="width:100px;" align="center"><a href="Action/autosPersona.php?NroDni=' . $personaArray['NroDni'] . '">Ver Auto</a></td></tr>';
+                }
+            } else {
+                echo '<tr><td colspan="5">No hay personas cargados</td></tr>';
+            }
+            ?>
+        </tbody>
+    </table>
 
-        </div>
-    </main>
-    <footer>
-        <?php
-        include_once "Estructura/Footer.php";
-        ?>
-    </footer>
+</div>
+<?php
+include_once "Estructura/Footer.php";
+?>
 
-</body>
 
-</html>
 
 
 

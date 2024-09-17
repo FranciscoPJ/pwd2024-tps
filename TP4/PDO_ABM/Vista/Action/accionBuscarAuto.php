@@ -30,11 +30,6 @@ if (isset($datos['accion'])) {
         }
     }
 
-    if ($resp) {
-        $mensaje = "La accion " . $datos['accion'] . " se realizo correctamente.";
-    } else {
-        $mensaje = "La accion " . $datos['accion'] . " no pudo concretarse.";
-    }
 
     $arrayDato = $objAbmAuto->darArray($datos); //array que contine los datos de un auto
 
@@ -55,11 +50,10 @@ if (isset($datos['accion'])) {
 <body class="bg-light">
     <div class="container mt-5"></div>
     <p>
-        <?php
-        echo "<h2 class='text-center text-primary'>" . $mensaje . "</h2>";
-        ?>
-    </p>
 
+    <h2 class='text-center text-primary'> Datos del auto:</h2>;
+
+    </p>
     <div>
 
         <div class="table-responsive mx-5">

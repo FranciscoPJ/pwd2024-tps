@@ -131,7 +131,7 @@
                     <li class="list-group-item"><a href="TP4/PDO_ABM/Vista/nuevaPersona.php">Ejercicio: 6</a></li>
                     <li class="list-group-item"><a href="TP4/PDO_ABM/Vista/nuevoAuto.php">Ejercicio: 7</a></li>
                     <li class="list-group-item"><a href="TP4/PDO_ABM/Vista/cambioDuenio.php">Ejercicio: 8</a></li>
-                    <li class="list-group-item"><a href="TP4/PDO_ABM/Vista/buscarAuto.php">Ejercicio: 9</a></li>
+                    <li class="list-group-item"><a href="TP4/PDO_ABM/Vista/buscarPersona.php">Ejercicio: 9</a></li>
                 </ul>
             </div>
 

@@ -9,10 +9,9 @@ $abmPersona = new AbmPersona();
 $resp = false;
 if (isset($datos['accion'])) {
 
-    if($datos['accion']=='editar'){        
+    if ($datos['accion'] == 'editar') {
         $resp = $abmPersona->modificacion($datos);
     }
-
 }
 ?>
 
@@ -55,7 +54,7 @@ if (isset($datos['accion'])) {
         ?>
 
         <br>
-        <a href="accionBuscarPersona.php" class="btn btn-secondary">Volver</a>
+        <a href="../../Vista/buscarPersona.php" class="btn btn-secondary">Volver</a>
     </div>
 
     <!-- Incluye Bootstrap JS -->

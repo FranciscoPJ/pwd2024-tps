@@ -5,7 +5,7 @@ include_once "Estructura/Header.php";
 <div class="d-flex justify-content-center align-items-center" style="margin-block:5%">
 
     <form action="Action/accionNuevaPersona.php" method="POST" onsubmit="return validar()">
-        <h2>Registrar Nueva Persona</h2>
+        <h2>Ejercicio 6: Registrar Nueva Persona</h2>
 
         <div class="form-group">
             <label for="NroDni">Número de DNI:</label><br>
@@ -31,8 +31,8 @@ include_once "Estructura/Header.php";
         <div class="form-group">
             <label for="fechaNac" class="form-label">Fecha de Nacimiento:</label><br>
             <!-- <input type="date" id="fechaNac" name="fechaNac"><br><br> (cambie el date por el text) -->
-            <input type="text" id="fechaNac" name="fechaNac" placeholder="Anio/Mes/Día" class="form-control">
-            <div class="invalid-feedback">Por favor, ingrese formato fecha indicado (Anio/Mes/Dia).</div>
+            <input type="date" id="fechaNac" name="fechaNac" placeholder="Anio/Mes/Día" class="form-control">
+            <div class="invalid-feedback">Sí sos menor a 18 no podrás registrarte.</div>
 
         </div>
 
