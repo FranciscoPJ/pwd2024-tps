@@ -34,7 +34,7 @@ include_once "Estructura/Header.php";
                     echo '</tr>';
                 }
             } else {
-                echo '<tr><td colspan="5">No hay autos cargados</td></tr>';
+                echo '<tr><td colspan="5">No Hay Autos Cargados En El Sistema.</td></tr>';
             }
 
 

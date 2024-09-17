@@ -85,7 +85,7 @@ if (isset($datos['accion'])) {
                 echo '</tbody>';
                 echo '</table>';
             } else {
-                echo "<div class='alert alert-warning text-center'>No tiene un auto asociado</div>";
+                echo "<div class='alert alert-warning text-center'>Este Auto No Existe, No Esta En El Sistema</div>";
             }
             ?>
         </div>

@@ -43,8 +43,10 @@ function validar() {
     } else {
     tel.addClass('is-valid');
     }
+
     // Validación de Apellido
-    if (valorApellido === "") {
+    var expresionApellido = /^[a-zA-Z\s]+$/;
+    if (valorApellido === "" || !expresionApellido.test(valorApellido)) {
         apellido.addClass('is-invalid');
         valido = false;
     } else {
@@ -52,7 +54,8 @@ function validar() {
     }
 
     // Validación de Nombre
-    if (valorNombre === "") {
+    var expresionNombre = /^[a-zA-Z\s]+$/;
+    if (valorNombre === "" || !expresionNombre.test(valorNombre)) {
         nombre.addClass('is-invalid');
         valido = false;
     } else {

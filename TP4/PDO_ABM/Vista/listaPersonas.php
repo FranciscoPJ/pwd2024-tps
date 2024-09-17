@@ -39,7 +39,7 @@ include_once "Estructura/Header.php";
                     echo '<td style="width:100px;" align="center"><a href="Action/autosPersona.php?NroDni=' . $personaArray['NroDni'] . '">Ver Auto</a></td></tr>';
                 }
             } else {
-                echo '<tr><td colspan="5">No hay personas cargados</td></tr>';
+                echo '<tr><td colspan="7">No Hay Personas Cargadas En El Sistema.</td></tr>';
             }
             ?>
         </tbody>
