@@ -48,7 +48,7 @@ include_once "Estructura/Header.php";
             <input type="text" id="Domicilio" name="Domicilio" class="form-control">
             <div class="invalid-feedback">Por favor, ingrese domicilio.</div>
 
-        </div>
+        </div><br>
 
         <input type="hidden" id="accion" name="accion" value="nuevo">
         <button type="submit" class="btn btn-primary">Registrar</button>

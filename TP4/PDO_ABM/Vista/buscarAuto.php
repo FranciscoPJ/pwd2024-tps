@@ -6,7 +6,7 @@ include_once "Estructura/Header.php";
         <h2>Ejercicio 4: Buscar Auto</h2>
 
         <div class="form-group">
-            <label for="patente">Nro Patente</label><br>
+            <label for="patente">Número Patente:</label><br>
             <input type="text" id="Patente" class="form-control" name="Patente" placeholder="Ingrese un numero de patente" style="width: 300px;">
             <input type="hidden" id="accion" name="accion" value="buscarPatente">
             <div class="invalid-feedback">Por favor, ingrese un número de patente válido.</div>

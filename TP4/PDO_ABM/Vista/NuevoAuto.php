@@ -2,22 +2,23 @@
 include_once "Estructura/Header.php";
 ?>
 
-<div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+<div class="d-flex justify-content-center align-items-center" style="height: 120vh;">
 
     <form action="Action/accionNuevoAuto.php" method="POST" onsubmit=" return validar()">
-        <h2>Ejercicio 7:Registrar Nuevo Vehiculo</h2>
+        <h2>Ejercicio 7: Registrar Nuevo Vehiculo</h2>
 
         <h3>Datos del Vehículo</h3>
 
+        <!-- Patente -->
         <div class="form-group">
 
             <label for="Patente" class="form-label">Patente:</label><br>
-            <input type="text" id="Patente" name="Patente" class="form-control"><br><br>
-
+            <input type="text" id="Patente" name="Patente" class="form-control">
             <div class="invalid-feedback">Por favor, ingrese una patente válida.</div>
 
         </div>
 
+        <!-- Marca -->
         <div class="form-group">
 
             <label for="Marca" class="form-label">Marca:</label><br>
@@ -31,25 +32,26 @@ include_once "Estructura/Header.php";
                 <option value="Renault">Renault</option>
             </select>
             <div class="invalid-feedback">No se seleccionó marca</div>
-            <br><br>
+
         </div>
 
+        <!-- Modelo -->
         <div class="form-group">
 
             <label for="Modelo" class="form-label">Modelo:</label><br>
-            <input type="text" id="Modelo" name="Modelo" class="form-control"><br><br>
-
+            <input type="text" id="Modelo" name="Modelo" class="form-control">
             <div class="invalid-feedback">Ingrese un año valido</div>
 
         </div>
 
-
+        <!-- DNI Dueño -->
         <div class="form-group">
-            <label for="DniDuenio" class="form-label">DNI del Duenio:</label><br>
-            <input type="text" id="DniDuenio" name="DniDuenio" class="form-control"><br><br>
 
+            <label for="DniDuenio" class="form-label">DNI del Dueño:</label><br>
+            <input type="text" id="DniDuenio" name="DniDuenio" class="form-control">
             <div class="invalid-feedback">Por favor, ingrese un DNI válido.</div>
-        </div>
+
+        </div><br>
 
         <input type="hidden" id="accion" name="accion" value="nuevo">
         <button type="submit" class="btn btn-primary">Registrar</button>

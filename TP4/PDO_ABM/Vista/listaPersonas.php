@@ -6,7 +6,7 @@ include_once "Estructura/Header.php";
 
 ?>
 
-<h3 class="text-center my-4">Ejercicio 5 - Lista de Personas</h3>
+<h3 class="text-center my-4">Ejercicio 5: Lista de Personas</h3>
 <div class="container">
 
     <table class="table table-bordered table-striped table-hover text-center">
