@@ -23,11 +23,9 @@ if (isset($datos['accion'])) {
 
                     $resp = 3; // se agrego el auto con exito
                 }
-
             } else { // La patente existe, debe poner otro patente
                 $resp = 2;
             }
-
         } else { //sino (No existe la persona ingresada)
             $resp = 1;
         } //fin else 
@@ -37,45 +35,57 @@ if (isset($datos['accion'])) {
 
 
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//ES" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
+
+
+</html>
+<!DOCTYPE html>
+<html lang="es">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nueva Persona</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+<div class="table-responsive mx-5">
 
-<body>
-        <?php
-        if ($resp == 3) {
-            echo "<div>";
-            echo "<h3>Nuevo Auto Ingresado!</h3>";
-            echo "<p>La Accion Agregar Auto Se Realizo Correctamente.</p>";
-            echo "</div><br>";
-            echo "<a href='../NuevoAuto.php'>Ir Formulario</a><br>";
-        } elseif ($resp == 2) {
-            echo "<div>";
-            echo "<h3>Error:</h3>";
-            echo "<p>Este Auto Existe, Elija Otra Patente.</p>";
-            echo "</div><br>";
-            echo "<a href='../NuevoAuto.php'>Ir Formulario Auto</a><br>";
-        } elseif($resp == 1){
-            echo "<div>";
-            echo "<h3>Error:</h3>";
-            echo "<p>No Existe Esta Persona, No esta registrada.</p>";
-            echo "</div><br>";
-            echo "<a href='../nuevaPersona.php'>Ir Formulario Persona</a><br>";
-        } else {
-            echo "<div>";
-            echo "<h3>Error:</h3>";
-            echo "<div>Datos No Ingresado.</div>";
-            echo "</div><br>";
-            echo "<a href='../NuevoAuto.php'>Ir Formulario Auto</a><br>";
-        }
-        ?>
+    <?php
 
-    <br><a href="../../../../Menu.php">Volver Menu</a><br>
+    if ($resp == 3) {
+        echo "<div class='alert alert-success text-center' >";
+        echo "<h3>Nuevo Auto Ingresado!</h3>";
+        echo "<p>La Acción Agregar Auto Se Realizó Correctamente.</p>";
+        echo "</div>";
+        echo "<div class='text-center my-3'><a href='../NuevoAuto.php' class='btn btn-primary'>Ir al Formulario</a></div>";
+    } elseif ($resp == 2) {
+        echo "<div class='alert alert-danger text-center'>";
+        echo "<h3>Error: No Se Pudo Concretar La Operacion</h3>";
+        echo "<p>Este Auto Ya Existe, Elija Otra Patente.</p>";
+        echo "</div>";
+        echo "<div class='text-center my-3'><a href='../NuevoAuto.php' class='btn btn-primary'>Ir al Formulario Auto</a></div>";
+    } elseif ($resp == 1) {
+        echo "<div class='alert alert-danger text-center'>";
+        echo "<h3>Error: No Se Pudo Concretar La Operacion</h3>";
+        echo "<p>No Existe Esta Persona, No Está Registrada.</p>";
+        echo "</div>";
+        echo "<div class='text-center my-3'><a href='../nuevaPersona.php' class='btn btn-primary'>Ir al Formulario Persona</a></div>";
+    } else {
+        echo "<div class='alert alert-danger text-center'>";
+        echo "<h3>Error: No Se Pudo Concretar La Operacion</h3>";
+        echo "<p>Datos No Ingresados.</p>";
+        echo "</div>";
+        echo "<div class='text-center my-3'><a href='../NuevoAuto.php' class='btn btn-primary'>Ir al Formulario Auto</a></div>";
+    }
+    ?>
 
+    <div class="text-center my-4">
+        <a href="../../../../Menu.php" class="btn btn-secondary">Volver al Menú</a>
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

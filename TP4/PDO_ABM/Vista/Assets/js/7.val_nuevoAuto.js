@@ -24,6 +24,8 @@ function validar() {
 
     if(valorModelo === "" || !regax.test(valorModelo) ||valorModelo > anioActual || valorModelo < 1950 ) {
         modelo.addClass('is-invalid')
+        valido = false;
+
 
     }else{
         modelo.addClass('is-valid')

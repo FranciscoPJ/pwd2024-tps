@@ -2,7 +2,7 @@ function validar() {
     var valido = true;
 
     // Selección de elementos
-    var fechaNac = $('#fechaNac');
+    var fecha = $('#fechaNac');
     var nombre = $('#Nombre');
     var apellido = $('#Apellido');
     var nroDni = $('#NroDni');
@@ -15,7 +15,7 @@ function validar() {
     dire.removeClass('is-invalid is-valid');
     apellido.removeClass('is-invalid is-valid');
     nombre.removeClass('is-invalid is-valid');
-    fechaNac.removeClass('is-invalid is-valid');
+    fecha.removeClass('is-invalid is-valid');
     
     // Obtener valores
     var valorDni = nroDni.val();
@@ -23,7 +23,7 @@ function validar() {
     var valorDire = dire.val();
     var valorApellido = apellido.val();
     var valorNombre = nombre.val();
-    var valorFechaNac = fechaNac.val();
+    var valorFechaNac = fecha.val();
     
 
     // Validación de DNI - 7 a 8 dígitos
@@ -35,16 +35,18 @@ function validar() {
         nroDni.addClass('is-valid');
     }
 
-// Validación de Teléfono entre 7 y 12 dígitos
+    // Validación de Teléfono entre 7 y 12 dígitos
     var expresionTel = /^\d{7,12}$/;
     if (!expresionTel.test(valorTel)) {
     tel.addClass('is-invalid');
     valido = false;
-} else {
+    } else {
     tel.addClass('is-valid');
-}
+    }
+
     // Validación de Apellido
-    if (valorApellido === "") {
+    var expresionApellido = /^[a-zA-Z\s]+$/;
+    if (valorApellido === "" || !expresionApellido.test(valorApellido)) {
         apellido.addClass('is-invalid');
         valido = false;
     } else {
@@ -52,24 +54,39 @@ function validar() {
     }
 
     // Validación de Nombre
-    if (valorNombre === "") {
+    var expresionNombre = /^[a-zA-Z\s]+$/;
+    if (valorNombre === "" || !expresionNombre.test(valorNombre)) {
         nombre.addClass('is-invalid');
         valido = false;
     } else {
         nombre.addClass('is-valid');
     }
 
-    valorFechaNac = valorFechaNac.replace(/\//g, '-').replace(/\s+/g, '');  // Reemplaza "/" por "-" y elimina espacios
- // Validación de Fecha de Nacimiento en formato yyyy-m-d o yyyy-mm-dd
-var formatoFecha = /^\d{4}-\d{1,2}-\d{1,2}$/;  // Expresión regular para yyyy-m-d o yyyy-mm-dd
+    // Función para convertir el formato dd/mm/yyyy a yyyy-mm-dd
+    function setFecha(fecha) {
+    var partes = fecha.split('/');
+    if (partes.length === 3) {
+        var dia = partes[0];
+        var mes = partes[1];
+       var anio = partes[2];
+        fecha =  `${anio}-${mes}-${dia}`;  // Devolvemos en formato yyyy-mm-dd
+    }
+   return fecha
+    }
 
-if (valorFechaNac === "" || valorFechaNac === null || !formatoFecha.test(valorFechaNac)) {
-    fechaNac.addClass('is-invalid');
+var fechaObj = new Date();
+var anioActual = fechaObj.getFullYear();
+valorFechaNac = setFecha(valorFechaNac);// Convertimos el valor de la fecha a yyyy-mm-dd
+ var anioIngresado = valorFechaNac.split('-')[0];  // Obtenemos el año de la fecha convertida
+
+var edad = anioActual - anioIngresado  ;
+
+if (valorFechaNac === null ||  edad < 18 || edad >90 ||  valorFechaNac === "") {
+    fecha.addClass('is-invalid');
     valido = false;
-}else {
-    fechaNac.addClass('is-valid');  // Si cumple con el formato
+} else {
+    fecha.addClass('is-valid');  
 }
-
 
 
 
