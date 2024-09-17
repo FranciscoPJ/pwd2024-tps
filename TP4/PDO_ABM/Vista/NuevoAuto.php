@@ -2,15 +2,15 @@
 include_once "Estructura/Header.php";
 ?>
 
-<div class="d-flex justify-content-center align-items-center" style="height: 120vh;">
+<div class="d-flex justify-content-center align-items-center" style="height: 140vh;">
 
     <form action="Action/accionNuevoAuto.php" method="POST" onsubmit=" return validar()">
         <h2>Ejercicio 7: Registrar Nuevo Vehiculo</h2>
 
-        <h3>Datos del Vehículo</h3>
+        <h3>Datos del Vehículo</h3><br>
 
         <!-- Patente -->
-        <div class="form-group">
+        <div class="form-group mb-3">
 
             <label for="Patente" class="form-label">Patente:</label><br>
             <input type="text" id="Patente" name="Patente" class="form-control">
@@ -19,7 +19,7 @@ include_once "Estructura/Header.php";
         </div>
 
         <!-- Marca -->
-        <div class="form-group">
+        <div class="form-group mb-3">
 
             <label for="Marca" class="form-label">Marca:</label><br>
             <select type="text" id="Marca" name="Marca" class="form-select">
@@ -36,7 +36,7 @@ include_once "Estructura/Header.php";
         </div>
 
         <!-- Modelo -->
-        <div class="form-group">
+        <div class="form-group mb-3">
 
             <label for="Modelo" class="form-label">Modelo:</label><br>
             <input type="text" id="Modelo" name="Modelo" class="form-control">
@@ -45,7 +45,7 @@ include_once "Estructura/Header.php";
         </div>
 
         <!-- DNI Dueño -->
-        <div class="form-group">
+        <div class="form-group mb-3">
 
             <label for="DniDuenio" class="form-label">DNI del Dueño:</label><br>
             <input type="text" id="DniDuenio" name="DniDuenio" class="form-control">
@@ -53,6 +53,7 @@ include_once "Estructura/Header.php";
 
         </div><br>
 
+        <!-- Boton Registrar -->
         <input type="hidden" id="accion" name="accion" value="nuevo">
         <button type="submit" class="btn btn-primary">Registrar</button>
     </form>

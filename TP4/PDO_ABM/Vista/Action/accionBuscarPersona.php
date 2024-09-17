@@ -26,7 +26,7 @@ $objPersona = $abmPersona->darArray($datos);
         if ($objPersona) {
             // Mostrar formulario con los datos de la persona
             echo '<form id="personaForm" action="ActualizarDatosPersona.php" method="POST" class="w-50" onsubmit="return validar()">';
-            echo '<h1 ">Actualizar datos:</h1>';
+            echo '<h1>Actualizar datos:</h1>';
             // DNI hidden
             echo '<input type="hidden" id="NroDni" name="NroDni" value="' . htmlspecialchars($objPersona[0]["NroDni"]) . '">';
             // Apellido
