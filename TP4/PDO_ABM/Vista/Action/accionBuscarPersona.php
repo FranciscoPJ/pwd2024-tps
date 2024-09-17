@@ -21,7 +21,7 @@ $objPersona = $abmPersona->darArray($datos);
 </head>
 
 <body>
-    <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="d-flex justify-content-center align-items-center" style="height: 140vh;">
         <?php
         if ($objPersona) {
             // Mostrar formulario con los datos de la persona
@@ -51,7 +51,7 @@ $objPersona = $abmPersona->darArray($datos);
             echo '<div class="mb-3">';
             echo '<label for="Telefono" class="form-label">Telefono:</label>';
             echo '<input type="text" class="form-control" id="Telefono" name="Telefono" value="' . htmlspecialchars($objPersona[0]['Telefono']) . '">';
-            echo '<div class="invalid-feedback">El telefono es requerido y debe ser un número válido.</div>';
+            echo '<div class="invalid-feedback">El telefono es requerido y debe ser un número válido. Entre 7 y 12 dígitos.</div>';
             echo '</div>';
             // Domicilio
             echo '<div class="mb-3">';
@@ -63,7 +63,7 @@ $objPersona = $abmPersona->darArray($datos);
 
             // Submit
             echo '<input id="accion" name="accion" value="editar" type="hidden">';
-            echo '<input type="submit" class="btn btn-primary" value="Actualizar">';
+            echo '<input type="submit" class="btn btn-primary mx-1" value="Actualizar">';
 
 
             // Fin form
