@@ -1,7 +1,7 @@
 <?php
 include_once "../configuracion.php";
 $objAbmPersona = new AbmPersona();
-$listaPersonas = $objAbmPersona->buscar(null);
+$listaPersonas = $objAbmPersona->darArray(null);
 ?>
 
 <!DOCTYPE html>
@@ -44,15 +44,15 @@ $listaPersonas = $objAbmPersona->buscar(null);
                     if (count($listaPersonas) > 0) {
 
 
-                        foreach ($listaPersonas as $objPersona) {
+                        foreach ($listaPersonas as $personaArray) {
 
-                            echo '<tr><td style="width:100px;">' . $objPersona->getNroDni() . '</td>';
-                            echo '<td style="width:100px;">' . $objPersona->getApellido() . '</td>';
-                            echo '<td style="width:100px;">' . $objPersona->getNombre() . '</td>';
-                            echo '<td style="width:100px;">' . $objPersona->getFechaNac() . '</td>';
-                            echo '<td style="width:100px;">' . $objPersona->getTelefono() . '</td>';
-                            echo '<td style="width:100px;" align="center">' . $objPersona->getDomicilio() . '</td>';
-                            echo '<td style="width:100px;" align="center"><a href="Action/autosPersona.php?NroDni=' . $objPersona->getNroDni() . '">Ver Auto</a></td></tr>';
+                            echo '<tr><td style="width:100px;">' . $personaArray['NroDni'] . '</td>';
+                            echo '<td style="width:100px;">' . $personaArray['Apellido'] . '</td>';
+                            echo '<td style="width:100px;">' . $personaArray['Nombre'] . '</td>';
+                            echo '<td style="width:100px;">' . $personaArray['fechaNac'] . '</td>';
+                            echo '<td style="width:100px;">' . $personaArray['Telefono']. '</td>';
+                            echo '<td style="width:100px;" align="center">' . $personaArray['Domicilio'] . '</td>';
+                            echo '<td style="width:100px;" align="center"><a href="Action/autosPersona.php?NroDni=' . $personaArray['NroDni'] . '">Ver Auto</a></td></tr>';
                         }
                     } else {
                         echo '<tr><td colspan="5">No hay personas cargados</td></tr>';

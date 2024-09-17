@@ -1,7 +1,7 @@
 <?php
 include_once "../configuracion.php";
 $objAbmAuto = new AbmAuto();
-$listaAutos = $objAbmAuto->buscar(null);
+$listaAutos = $objAbmAuto->darArray(null);
 ?>
 
 
@@ -42,13 +42,14 @@ $listaAutos = $objAbmAuto->buscar(null);
                     <?php
                     if (count($listaAutos) > 0) {
 
-                        for ($i = 0; $i < count($listaAutos); $i++) {
+                        
+                        foreach ($listaAutos as $autosArray) {
                             echo '<tr>';
-                            echo '<td>' . $listaAutos[$i]->getPatente() . '</td>';
-                            echo '<td >' . $listaAutos[$i]->getMarca() . '</td>';
-                            echo '<td>' . $listaAutos[$i]->getModelo() . '</td>';
-                            echo '<td>' . $listaAutos[$i]->getObjDniDuenio()->getApellido() . '</td>';
-                            echo '<td>' . $listaAutos[$i]->getObjDniDuenio()->getNombre() . '</td>';
+                            echo '<td>' . $autosArray['Patente'] . '</td>';
+                            echo '<td >' . $autosArray['Marca'] . '</td>';
+                            echo '<td>' . $autosArray['Modelo'] . '</td>';
+                            echo '<td>' . $autosArray['ObjDniDuenio']['Apellido'] . '</td>';
+                            echo '<td>' . $autosArray['ObjDniDuenio']['Nombre'] . '</td>';
                             echo '</tr>';
                         }
                     } else {

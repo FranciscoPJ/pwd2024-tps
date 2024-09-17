@@ -5,7 +5,7 @@ $datos = data_submitted();
 //verEstructura($datos);
     
 $abmPersona = new AbmPersona();
-$objPersona = $abmPersona->buscar($datos);
+$objPersona = $abmPersona->darArray($datos);
 //verEstructura($objPersona);
 ?>
 
@@ -26,35 +26,35 @@ $objPersona = $abmPersona->buscar($datos);
                 // Mostrar formulario con los datos de la persona
                 echo '<form id="personaForm" action="ActualizarDatosPersona.php" method="POST" class="w-50" onsubmit="return validar()">';
                 // DNI hidden
-                echo '<input type="hidden" id="NroDni" name="NroDni" value="' . htmlspecialchars($objPersona[0]->getNroDni()) . '">';
+                echo '<input type="hidden" id="NroDni" name="NroDni" value="' . htmlspecialchars($objPersona[0]["'NroDni'"]) . '">';
                 // Apellido
                 echo '<div class="mb-3">';
                 echo '<label for="Apellido" class="form-label">Apellido:</label>';
-                echo '<input type="text" class="form-control" id="Apellido" name="Apellido" value="' . htmlspecialchars($objPersona[0]->getApellido()) . '">';
+                echo '<input type="text" class="form-control" id="Apellido" name="Apellido" value="' . htmlspecialchars($objPersona[0]['Apellido']) . '">';
                 echo '<div class="invalid-feedback">El apellido es requerido y solo puede contener letras.</div>';
                 echo '</div>';
                 // Nombre
                 echo '<div class="mb-3">';
                 echo '<label for="Nombre" class="form-label">Nombre:</label>';
-                echo '<input type="text" class="form-control" id="Nombre" name="Nombre" value="' . htmlspecialchars($objPersona[0]->getNombre()) . '">';
+                echo '<input type="text" class="form-control" id="Nombre" name="Nombre" value="' . htmlspecialchars($objPersona[0]["Nombre"]) . '">';
                 echo '<div class="invalid-feedback">El nombre es requerido y solo puede contener letras.</div>';
                 echo '</div>';
                 // Fecha de Nacimiento
                 echo '<div class="mb-3">';
                 echo '<label for="fechaNac" class="form-label">Fecha de Nacimiento:</label>';
-                echo '<input type="date" class="form-control" id="fechaNac" name="fechaNac" value="' . htmlspecialchars($objPersona[0]->getFechaNac()) . '">';
+                echo '<input type="date" class="form-control" id="fechaNac" name="fechaNac" value="' . htmlspecialchars($objPersona[0]['fechaNac']) . '">';
                 echo '<div class="invalid-feedback">Por favor, ingrese una fecha válida.</div>';
                 echo '</div>';
                 // Telefono
                 echo '<div class="mb-3">';
                 echo '<label for="Telefono" class="form-label">Telefono:</label>';
-                echo '<input type="text" class="form-control" id="Telefono" name="Telefono" value="' . htmlspecialchars($objPersona[0]->getTelefono()) . '">';
+                echo '<input type="text" class="form-control" id="Telefono" name="Telefono" value="' . htmlspecialchars($objPersona[0]['Telefono']) . '">';
                 echo '<div class="invalid-feedback">El telefono es requerido y debe ser un número válido.</div>';
                 echo '</div>';
                 // Domicilio
                 echo '<div class="mb-3">';
                 echo '<label for="Domicilio" class="form-label">Domicilio:</label>';
-                echo '<input type="text" class="form-control" id="Domicilio" name="Domicilio" value="' . htmlspecialchars($objPersona[0]->getDomicilio()) . '">';
+                echo '<input type="text" class="form-control" id="Domicilio" name="Domicilio" value="' . htmlspecialchars($objPersona[0]['Domicilio']) . '">';
                 echo '<div class="invalid-feedback">El domicilio es requerido.</div>';
                 echo '</div>';
                 // Submit

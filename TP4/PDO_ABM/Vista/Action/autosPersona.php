@@ -7,12 +7,12 @@ $dni = data_submitted(); //obtengo array del NroDni
 $objAbmPersona = new AbmPersona();
 $objAbmAuto = new AbmAuto();
 
-$colDatosPersona = $objAbmPersona->buscar($dni);
+$colDatosPersona = $objAbmPersona->darArray($dni);
 //print_r($colDatosPersona);
 
 $valorDni = $dni['NroDni'];
 $patente = ["DniDuenio" => $valorDni];
-$colDatosAuto = $objAbmAuto->buscar($patente);
+$colDatosAuto = $objAbmAuto->darArray($patente);
 //print_r($colDatosAuto);
 
 ?>
@@ -32,17 +32,17 @@ $colDatosAuto = $objAbmAuto->buscar($patente);
         if (count($colDatosPersona) > 0) {
 
             foreach ($colDatosPersona as $datoPersona) {
-                echo '<strong>DNI:</strong> ' . $datoPersona->getNroDni() . '.<br>';
+                echo '<strong>DNI:</strong> ' . $datoPersona['NroDni'] . '.<br>';
 
-                echo '<strong>Apellido:</strong> ' . $datoPersona->getApellido() . '.<br>';
+                echo '<strong>Apellido:</strong> ' . $datoPersona['Apellido'] . '.<br>';
 
-                echo '<strong>Nombre:</strong> ' . $datoPersona->getNombre() . '.<br>';
+                echo '<strong>Nombre:</strong> ' . $datoPersona["Nombre"] . '.<br>';
 
-                echo '<strong>Fecha de Nacimiento:</strong> ' . $datoPersona->getFechaNac() . '.<br>';
+                echo '<strong>Fecha de Nacimiento:</strong> ' . $datoPersona['fechaNac'] . '.<br>';
 
-                echo '<strong>Telefono:</strong> ' . $datoPersona->getTelefono() . '.<br>';
+                echo '<strong>Telefono:</strong> ' . $datoPersona['Telefono'] . '.<br>';
 
-                echo '<strong>Domicilio:</strong> ' . $datoPersona->getDomicilio() . '.<br>';
+                echo '<strong>Domicilio:</strong> ' . $datoPersona['Domicilio'] . '.<br>';
             }
         } else {
             echo "Esta perona no esta registrado";
@@ -63,11 +63,11 @@ $colDatosAuto = $objAbmAuto->buscar($patente);
         echo "</tr>";
         foreach ($colDatosAuto as $datoAuto) {
             
-            echo '<tr><td style="width:100px;">' . $datoAuto->getPatente() . '</td>';
+            echo '<tr><td style="width:100px;">' . $datoAuto["Patente"] . '</td>';
 
-            echo '<td style="width:100px;">' . $datoAuto->getMarca() . '</td>';
+            echo '<td style="width:100px;">' . $datoAuto["Marca"] . '</td>';
 
-            echo '<td style="width:100px;">' . $datoAuto->getModelo() . '</td>';
+            echo '<td style="width:100px;">' . $datoAuto["Modelo"] . '</td>';
 
             //echo '<td style="width:100px;">' . $datoAuto->getObjDniDuenio()->getNroDni() . '</td>';
 

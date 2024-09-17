@@ -36,7 +36,7 @@ if (isset($datos['accion'])) {
         $mensaje = "La accion " . $datos['accion'] . " no pudo concretarse.";
     }
 
-    $arrayDato = $objAbmAuto->buscar($datos); //array que contine los datos de un auto
+    $arrayDato = $objAbmAuto->darArray($datos); //array que contine los datos de un auto
 
     $colDatos = $objAbmAuto->solicitarDatos(); //array de preguntas de datos
 }
@@ -81,10 +81,10 @@ if (isset($datos['accion'])) {
                 foreach ($arrayDato as $dato) {
 
                     echo '<tr>';
-                    echo '<td>' . $dato->getPatente() . '</td>';
-                    echo '<td>' . $dato->getMarca() . '</td>';
-                    echo '<td>' . $dato->getModelo() . '</td>';
-                    echo '<td>' . $dato->getObjDniDuenio()->getNroDni() . '</td>';
+                    echo '<td>' . $dato['Patente'] . '</td>';
+                    echo '<td>' . $dato['Marca'] . '</td>';
+                    echo '<td>' . $dato['Modelo'] . '</td>';
+                    echo '<td>' . $dato['ObjDniDuenio']['NroDni'] . '</td>';
                     echo '</tr>';
                 }
 

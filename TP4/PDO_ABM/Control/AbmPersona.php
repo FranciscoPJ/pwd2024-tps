@@ -145,7 +145,9 @@ class AbmPersona{
                 $where.=" Domicilio ='" .$param['Domicilio'] ."'";
             }
         }
+        
         $arreglo = Persona::listar($where);  
+        print_r($arreglo);
         return $arreglo;
         
     }
@@ -170,6 +172,58 @@ class AbmPersona{
         $objeto = $this->cargarObjeto($array)
 
     }*/
+
+    public function darArray($param) {
+        $listadoArray=[];
+        $where = "";
+        //echo "<div>hola entramos en al buscar()</div>";
+        //$param<>NULL 
+        if ($param<>NULL){
+
+            if  (isset($param['NroDni'])){            
+                $where.=" NroDni ='".$param['NroDni'] . "'";
+            }
+                
+            if  (isset($param['Apellido'])){
+                $where.=" Apellido ='".$param['Apellido']."'";
+            }
+                
+            if  (isset($param['Nombre'])){
+                $where.= " Nombre ='" .$param['Nombre'] . "'";
+            }
+                
+            if  (isset($param['fechaNac'])){
+                $where.=" fechaNac ='". $param['fechaNac'] ."'";
+            }
+                
+            if  (isset($param['Telefono'])){
+                $where.=" Telefono ='" .$param['Telefono'] . "'";
+            }
+                
+            if  (isset($param['Domicilio'])){
+                $where.=" Domicilio ='" .$param['Domicilio'] ."'";
+            }
+        }
+        $arreglo = Persona::listar($where);  
+        if (count($arreglo) > 0) {
+
+
+            foreach ($arreglo as $objPersona) {
+
+               $personaArray =[
+                    'NroDni' => $objPersona->getNroDni(),
+                    'Apellido' => $objPersona->getApellido(),
+                    'Nombre' => $objPersona->getNombre(),
+                    'fechaNac' => $objPersona->getFechaNac(),
+                    'Telefono' => $objPersona->getTelefono(),
+                    'Domicilio' => $objPersona->getDomicilio(),
+                ];
+                array_push($listadoArray,$personaArray);
+            }
+            
+    }
+    return $listadoArray;
+}
 
     
 }

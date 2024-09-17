@@ -3,44 +3,6 @@
 include_once "Estructura/Header.php";
 ?>
 
-<!-- <script>
-    function Validacion() {
-        $(document).ready(function() {
-            // Escuchar el evento submit del formulario
-            $('#cambioDuenio').on('submit', function(event) {
-                // Prevenir el envío del formulario si no pasa las validaciones
-                var isValid = true;
-                var patente = $('#patente').val().trim();
-                var doc = $('#doc').val().trim();
-
-                if (patente === '') {
-                    isValid = false;
-                    $('#msj-patente').html('')
-                    $('#msj-patente').html('La patente es obligatoria.');
-                    $('#patente').addClass(' border-danger');
-                }
-
-                if (doc === '') {
-                    isValid = false;
-                    $('#msj-doc').html('')
-                    $('#msj-doc').html('El DNI es obligatorio.');
-                    $('#doc').addClass('form-control border-danger');
-                } else if (!/^\d+$/.test(doc)) {
-                    isValid = false;
-                    $('#msj-doc').html('')
-                    $('#msj-doc').html('El DNI debe contener solo números.');
-
-                    $('#doc').addClass('form-control border-danger');
-                }
-
-                if (!isValid) {
-                    event.preventDefault();
-                }
-            });
-        });
-    }
-</script> -->
-
 
 <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
     <form id="cambioDuenio" action="Action/accionCambioDuenio.php" method="GET" onsubmit="return validar()" style="width: 500px; margin:10% auto ;">

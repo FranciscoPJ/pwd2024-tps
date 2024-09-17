@@ -175,6 +175,56 @@ class AbmAuto{
         // falso (bueno)
         return $existe;
     }
+
+    public function darArray($param) {
+        $listadoArray=[];
+        $where = "";
+
+        if ($param<>NULL){
+
+            if  (isset($param['Patente'])){
+                $where .= " Patente = '". $param['Patente'] . "'";
+            }
+                
+            if  (isset($param['Marca'])){
+                $where.=" Marca ='".$param['Marca']."'";
+            }
+                
+            if  (isset($param['Modelo'])){
+                $where.=" Modelo ='".$param['Modelo']."'";
+            }
+                
+            if  (isset($param['DniDuenio'])){
+                
+                $where.=" DniDuenio ='".$param['DniDuenio']."'";
+            }
+                
+        } 
+      
+        $arreglo = Auto::listar($where);  
+
+        if (count($arreglo) > 0) {
+
+
+            foreach ($arreglo as $objAuto) {
+                $autoArray=[
+                    'Patente' => $objAuto->getPatente(),
+                    'Marca' => $objAuto->getMarca(),
+                    'Modelo' => $objAuto->getModelo(),
+                    'ObjDniDuenio' => [
+                        'NroDni' => $objAuto->getObjDniDuenio()->getNroDni(),
+                        'Apellido' => $objAuto->getObjDniDuenio()->getApellido(),
+                        'Nombre' => $objAuto->getObjDniDuenio()->getNombre(),
+                        'fechaNac' => $objAuto->getObjDniDuenio()->getFechaNac(),
+                        'Telefono' => $objAuto->getObjDniDuenio()->getTelefono(),
+                        'Domicilio' => $objAuto->getObjDniDuenio()->getDomicilio(),
+                    ]
+                ];
+
+                array_push($listadoArray,$autoArray);
+            }}
+        return  $listadoArray;
+    }
 }
 
 ?>
