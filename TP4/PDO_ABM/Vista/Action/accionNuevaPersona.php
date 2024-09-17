@@ -42,7 +42,7 @@ if (isset($datos['accion'])) {
                                 echo "<div/>";
                             } else {
                                 echo "<div class='alert alert-danger text-center'>";
-                                echo "No pudo registrarse nueva Persona.";
+                                echo "No Se Pudo Registrar La Nueva Persona.<br>Este DNI Ya Existe.";
                                 echo "<div/>";
                             }
 

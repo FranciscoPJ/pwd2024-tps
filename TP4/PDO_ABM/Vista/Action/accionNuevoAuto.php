@@ -55,25 +55,25 @@ if (isset($datos['accion'])) {
     if ($resp == 3) {
         echo "<div class='alert alert-success text-center' >";
         echo "<h3>Nuevo Auto Ingresado!</h3>";
-        echo "<p>La Acción Agregar Auto se realizó correctamente.</p>";
+        echo "<p>La Acción Agregar Auto Se Realizó Correctamente.</p>";
         echo "</div>";
         echo "<div class='text-center my-3'><a href='../NuevoAuto.php' class='btn btn-primary'>Ir al Formulario</a></div>";
     } elseif ($resp == 2) {
         echo "<div class='alert alert-danger text-center'>";
-        echo "<h3>Error:</h3>";
-        echo "<p>Este Auto ya existe, elija otra patente.</p>";
+        echo "<h3>Error: No Se Pudo Concretar La Operacion</h3>";
+        echo "<p>Este Auto Ya Existe, Elija Otra Patente.</p>";
         echo "</div>";
         echo "<div class='text-center my-3'><a href='../NuevoAuto.php' class='btn btn-primary'>Ir al Formulario Auto</a></div>";
     } elseif ($resp == 1) {
         echo "<div class='alert alert-danger text-center'>";
-        echo "<h3>Error:</h3>";
-        echo "<p>No existe esta persona, no está registrada.</p>";
+        echo "<h3>Error: No Se Pudo Concretar La Operacion</h3>";
+        echo "<p>No Existe Esta Persona, No Está Registrada.</p>";
         echo "</div>";
         echo "<div class='text-center my-3'><a href='../nuevaPersona.php' class='btn btn-primary'>Ir al Formulario Persona</a></div>";
     } else {
         echo "<div class='alert alert-danger text-center'>";
-        echo "<h3>Error:</h3>";
-        echo "<p>Datos no ingresados.</p>";
+        echo "<h3>Error: No Se Pudo Concretar La Operacion</h3>";
+        echo "<p>Datos No Ingresados.</p>";
         echo "</div>";
         echo "<div class='text-center my-3'><a href='../NuevoAuto.php' class='btn btn-primary'>Ir al Formulario Auto</a></div>";
     }

@@ -68,24 +68,24 @@ if (isset($datos['Patente']) && isset($datos['NroDni'])) {
         <div class="alert alert-info text-center">
             <?php
             if ($mensaje == null) {
-                echo "Auto cambiado de dueño con éxito";
+                echo "Auto Cambiado De Dueño Con Exito!";
             } else
                 echo $mensaje;
             ?>
         </div>
 
-        <div class="card">
-            <div class="card-body">
-                <?php
-                if (isset($auto)) {
-                    echo "<p><strong>Patente:</strong> " . $auto[0]->getPatente() . "</p>";
-                    echo "<p><strong>Modelo:</strong> " . $auto[0]->getModelo() . "</p>";
-                    echo "<p><strong>Marca:</strong> " . $auto[0]->getMarca() . "</p>";
-                    echo "<p><strong>DNI Dueño:</strong> " . $auto[0]->getObjDniDuenio()->getNroDni() . "</p>";
-                }
-                ?>
-            </div>
-        </div>
+        <?php
+        if (isset($auto)) {
+            echo '<div class="card">';
+            echo '<div class="card-body">';
+            echo "<p><strong>Patente:</strong> " . $auto[0]->getPatente() . "</p>";
+            echo "<p><strong>Modelo:</strong> " . $auto[0]->getModelo() . "</p>";
+            echo "<p><strong>Marca:</strong> " . $auto[0]->getMarca() . "</p>";
+            echo "<p><strong>DNI Dueño:</strong> " . $auto[0]->getObjDniDuenio()->getNroDni() . "</p>";
+            echo "</div>";
+            echo "</div>";
+        }
+        ?>
 
         <div class="text-center my-4">
             <a href="../CambioDuenio.php" class="btn btn-primary">Volver</a>
