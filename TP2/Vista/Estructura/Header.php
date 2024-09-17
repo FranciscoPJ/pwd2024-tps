@@ -124,13 +124,13 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">TP4</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="../../TP4/PDO_ABM/Vista/buscarAuto.php">Ejercicio: buscarAuto </a></li>
-                        <li><a class="dropdown-item" href="../../TP4/PDO_ABM/Vista/CambioDuenio.php">Ejercicio: CambioDuenio </a></li>
-                        <li><a class="dropdown-item" href="../../TP4/PDO_ABM/Vista/listaPersonas.php">Ejercicio: listaPersonas </a></li>
-                        <li><a class="dropdown-item" href="../../TP4/PDO_ABM/Vista/nuevaPersona.php">Ejercicio: nuevaPersona </a></li>
-                        <li><a class="dropdown-item" href="../../TP4/PDO_ABM/Vista/NuevoAuto.php">Ejercicio: NuevoAuto</a></li>
-                        <li><a class="dropdown-item" href="../../TP4/PDO_ABM/Vista/verAutos.php">Ejercicio: verAutos</a></li>
-
+                        <li><a class="dropdown-item" href="../../TP4/PDO_ABM/Vista/verAutos.php">Ejercicio: 3</a></li>
+                        <li><a class="dropdown-item" href="../../TP4/PDO_ABM/Vista/buscarAuto.php">Ejercicio: 4</a></li>
+                        <li><a class="dropdown-item" href="../../TP4/PDO_ABM/Vista/listaPersonas.php">Ejercicio: 5</a></li>
+                        <li><a class="dropdown-item" href="../../TP4/PDO_ABM/Vista/nuevaPersona.php">Ejercicio: 6</a></li>
+                        <li><a class="dropdown-item" href="../../TP4/PDO_ABM/Vista/nuevoAuto.php">Ejercicio: 7</a></li>
+                        <li><a class="dropdown-item" href="../../TP4/PDO_ABM/Vista/cambioDuenio.php">Ejercicio: 8</a></li>
+                        <li><a class="dropdown-item" href="../../TP4/PDO_ABM/Vista/buscarPersona.php">Ejercicio: 9</a></li>
                     </ul>
                 </li>
 
