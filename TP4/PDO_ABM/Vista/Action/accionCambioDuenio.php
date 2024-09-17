@@ -17,29 +17,28 @@ if (isset($datos['Patente']) && isset($datos['NroDni'])) {
 
     $patente = $datos['Patente'];
     $doc = $datos['NroDni'];
-
-    $auto = $objAbmAuto->Buscar($datos);
-
-    $persona = $ObjPersona->Buscar($datos);
+  
+    $auto = $objAbmAuto->darArray($datos);
+    $objPersona = $ObjPersona->buscar($datos);
+    $persona = $ObjPersona->darArray($datos);
     if (!$auto || !$persona) {
         $auto = null;
         $mensaje = "Patente del Auto o Persona no encontrados";
     } else if ($persona[0]) {
      
-        if ($datos['NroDni'] == $auto[0]->getObjDniDuenio()->getNroDni()) {
+        if ($datos['NroDni'] == $auto[0]['ObjDniDuenio']['NroDni']) {
             $mensaje = "El auto ya pertenece a esta persona";
             $auto = null;
 
         } else if (!$mensaje) {
            
-     
-            $auto[0]->setObjDniDuenio($persona[0]);
-            
+            $auto[0]['ObjDniDuenio']['NroDni']=$persona[0]['NroDni'];
+
             $arrayAuto = [
-                "Patente" => $auto[0]->getPatente(),
-                "Marca" => $auto[0]->getMarca(),
-                "Modelo" => $auto[0]->getModelo(),
-                "DniDuenio" => $auto[0]->getObjDniDuenio(),
+                "Patente" => $auto[0]["Patente"],
+                "Marca" => $auto[0]["Marca"],
+                "Modelo" => $auto[0]["Modelo"],
+                "DniDuenio" => $objPersona[0],
             ];
          
             if (!$objAbmAuto->modificacion($arrayAuto)) {
@@ -72,10 +71,10 @@ if (isset($datos['Patente']) && isset($datos['NroDni'])) {
 
             // Creamos el string con los datos del auto
             $datosAuto = "
-    <p>Patente: " . $auto[0]->getPatente() . "</p>
-    <p>Modelo: " . $auto[0]->getModelo() . "</p>
-    <p>Marca: " . $auto[0]->getMarca() . "</p>
-    <p>DNI Duenio: " . $auto[0]->getObjDniDuenio()->getNroDni() . "</p>
+    <p>Patente: " . $auto[0]["Patente"] . "</p>
+    <p>Modelo: " . $auto[0]["Marca"] . "</p>
+    <p>Marca: " . $auto[0]["Modelo"] . "</p>
+    <p>DNI Duenio: " . $auto[0]['ObjDniDuenio']['NroDni'] . "</p>
     ";
 
             echo $datosAuto;

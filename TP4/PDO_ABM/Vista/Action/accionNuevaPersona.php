@@ -2,7 +2,7 @@
 include_once '../../configuracion.php';
 
 $datos = data_submitted();
-//print_r($datos);
+
 
 $objAbmPersona = new AbmPersona();
 $resp = false;
