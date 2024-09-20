@@ -152,7 +152,6 @@ class AbmPersona
         }
         
         $arreglo = Persona::listar($where);  
-        print_r($arreglo);
         return $arreglo;
     }
 
